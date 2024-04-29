@@ -1,0 +1,19 @@
+import React from "react";
+
+const FooterLinks = ({ links }) => {
+  console.log("FooterLinks", links);
+  return (
+    <>
+      {links.map((link) => (
+        <li
+          className=" cursor-pointer transition-all duration-300 hover:translate-x-[2px]"
+          key={link.name}
+        >
+          <a href="">{link.name}</a>
+        </li>
+      ))}
+    </>
+  );
+};
+
+export default FooterLinks;
