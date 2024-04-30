@@ -34,18 +34,22 @@ function Navbar() {
           sticky ? "header-sticky" : ""
         } left-0 right-0 bg-navbar text-white border-b-[1px] border-primary/50`}
       >
-        <nav className="container flex items-center justify-between h-[70px] py-2">
+        <nav className="container flex items-center justify-between h-[80px] py-4  ">
           {/* Logo selection */}
-          <div className="text-2xl md:text-3xl text-white px-2 w-12 md:w-8 lg:w-80 ">
+          <div className="md:text-3xl text-white">
             <a href="#" className={`${sticky ? "block" : "hidden"}`}>
-              <img src={Logo} alt="" className="sticky-logo" />
+              <img
+                src={Logo}
+                alt=""
+                className="sticky-logo"
+              />
             </a>
             <a href="#" className={`${!sticky ? "block" : "hidden"}`}>
               <FaHome size={30} />
             </a>
           </div>
           {/* Desktop menu selection */}
-          <div className=" hidden md:block">
+          <div className="hidden md:block font-bold">
             <ul className="flex top-12 left-0 right-0  items-center gap-10">
               <li className=" group relative cursor-pointer">
                 <a href="#" className="flex items-center gap-[2px] h-[72px]">
@@ -65,7 +69,7 @@ function Navbar() {
                 >
                   <ul className="space-y-3">
                     <li className="p-2 hover:bg-hover hover:text-white">
-                      Services {/* dropdown section */}
+                      Faites un don {/* dropdown section */}
                     </li>
                     <li className="p-2 hover:bg-hover hover:text-white">
                       About us
@@ -175,7 +179,7 @@ function Navbar() {
               </li>
               <li className=" group cursor-pointer">
                 <a href="#" className="flex items-center gap-[2px] h-[72px]">
-                  Centre de média{" "}
+                  Centre des médias{" "}
                   <span>
                     <FaCaretDown
                       className=" transition-all 
@@ -270,9 +274,10 @@ function Navbar() {
                   </div>
                 </div>
               </li>
+              
               <li className=" group cursor-pointer">
                 <a href="#" className="flex items-center gap-[2px] h-[72px]">
-                  Nos projets{" "}
+                  Notre action{" "}
                   <span>
                     <FaCaretDown
                       className=" transition-all 
@@ -367,6 +372,7 @@ function Navbar() {
                   </div>
                 </div>
               </li>
+
               <li className=" group cursor-pointer">
                 <a href="#" className="flex items-center gap-[2px] h-[72px]">
                   À Propos{" "}
@@ -464,7 +470,14 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className=" cursor-pointer">Contact us</li>
+              <li>
+                <button
+                  className="h-[40px] w-[150px] rounded-full 
+                              bg-hover hover:bg-principal/90"
+                >
+                  Faire un don
+                </button>
+              </li>
               <li className=" group relative cursor-pointer">
                 <a
                   href="#"

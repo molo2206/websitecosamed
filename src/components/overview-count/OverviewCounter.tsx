@@ -16,7 +16,7 @@ const OverviewCounter = () => {
           >
             <CountUp end={234} suffix="+" duration={2.75} />
           </h1>
-          <h1 className="sm:text-md text-xs md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs md:text-lg">Membres</h1>
         </div>
         <div className=" flex flex-col items-center justify-center">
           <h1
@@ -25,7 +25,7 @@ const OverviewCounter = () => {
           >
             <CountUp end={234} suffix="+" duration={2.75} />
           </h1>
-          <h1 className="sm:text-md text-xs md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs md:text-lg">Utilisateurs</h1>
         </div>
         <div className=" flex flex-col items-center justify-center">
           <h1
@@ -34,7 +34,7 @@ const OverviewCounter = () => {
           >
             <CountUp end={234} suffix="+" duration={2.75} />
           </h1>
-          <h1 className="sm:text-md text-xs md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs md:text-lg">Medecins</h1>
         </div>
         <div className=" flex flex-col items-center justify-center">
           <h1
@@ -43,7 +43,7 @@ const OverviewCounter = () => {
           >
             <CountUp end={234} suffix="+" duration={2.75} />
           </h1>
-          <h1 className="sm:text-md text-xs md:text-lg">Clients</h1>
+          <h1 className="sm:text-md text-xs md:text-lg">Infirmiers</h1>
         </div>
       </div>
     </section>
