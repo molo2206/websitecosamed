@@ -7,6 +7,7 @@ import Blogs from "./components/blogs/Blogs";
 import Footer from "./components/footer/Footer";
 import NavbarFirst from "./components/navbar/NavbarFirst";
 import "./assets/css/index.scss";
+import "./assets/scss/index.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
