@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/logo.jpg";
+import Logo from "../../assets/logo1.png";
 import {
   FaFacebook,
   FaInstagram,
@@ -12,42 +12,52 @@ import FooterLinks from "./FooterLinks";
 const Footer = () => {
   const importantLinks = [
     {
-      name: "Home",
+      name: "Mission",
     },
     {
-      name: "About",
+      name: "Vision",
     },
     {
-      name: "Services",
+      name: "Gouvernance",
     },
     {
-      name: "Contact",
+      name: "Norme de gestion",
     },
     {
-      name: "Login",
+      name: "Histoire",
+    },
+    {
+      name: "Finances",
+    },
+    {
+      name: "Publications",
+    },
+    {
+      name: "Histoire",
+    },
+    {
+      name: "Declaration de confidentialité",
+    },
+    {
+      name: "Contactez-nous",
     },
   ];
   const Links = [
     {
-      name: "Privacy Policy",
+      name: "République démocratique du congo(Nord-kivu et Sud-kivu)",
     },
-    {
-      name: "Services",
-    },
-    {
-      name: "Contact",
-    },
+    
   ];
   return (
     <>
       <footer className="text-white rounded-t-3xl bg-gradient-to-r bg-principal">
-        <div className=" container mx-auto max-w-[1200px] p-4">
+        <div className=" container mx-auto  p-4">
           {/* Footer Contain section */}
-          <div className="grid py-5 md:grid-cols-3 header__sticky">
-            <div className="px-4 py-8">
-              <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl">
+          <div className="grid py-2 md:grid-cols-3 header__sticky">
+            <div className="px-2 py-4">
+              <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl ">
                 <a href="/#home" className="">
-                <img src={Logo} alt="" className="sticky-logo" />
+                <img src={Logo} alt="" className="sticky-logo " />
                 </a>
               </h1>
               <p className="">
@@ -70,7 +80,7 @@ const Footer = () => {
             <div className=" grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2">
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl">
-                  Important Links
+                  Qui sommes nous
                 </h1>
                 <ul className=" flex flex-col gap-3">
                   <FooterLinks links={importantLinks} />
@@ -78,15 +88,16 @@ const Footer = () => {
               </div>
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl">
-                  Links
+                Où nous trouver
                 </h1>
                 <ul className=" flex flex-col gap-3">
                   <FooterLinks links={Links} />
                 </ul>
               </div>
+              
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl">
-                  Social Links
+                   Où nous trouver
                 </h1>
                 <div className=" flex flex-col gap-3">
                   <h1>Subscribe to out newsletter</h1>
