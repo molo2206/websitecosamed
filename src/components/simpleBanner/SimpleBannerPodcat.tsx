@@ -1,5 +1,5 @@
-
-const SimpleBanner = () => {
+import Img1 from "../../assets/blogs/img1.jpeg";
+const SimpleBannerPodcat = ({podcast}) => {
   return (
     <>
       <div className=" bg-principal">
@@ -8,17 +8,17 @@ const SimpleBanner = () => {
             <div className="px-2">
               <iframe
                 className="aspect-video w-full"
-                src="https://www.youtube.com/embed/gRWMen27Uio?si=VtHMh9xCxQ6ccFh8"
+                src={podcast}
                 title="Youtube video player"
                 frameborder="0"
                 allow="accelerometer: autoplay; clipboard-write;encrypted-media;
-            gyroscope;picture-in-picture;web-share"
+          gyroscope;picture-in-picture;web-share"
                 allowFullScreen
               ></iframe>
             </div>
             <div
               className="flex flex-col items-center
-           gap-4 text-center text-white dark:text-white md:col-span-2 md:items-start md:text-left"
+         gap-4 text-center text-white dark:text-white md:col-span-2 md:items-start md:text-left"
             >
               <h1 className="text-3xl font-bold">
                 Market your next project with Cosamed
@@ -40,4 +40,4 @@ const SimpleBanner = () => {
   );
 };
 
-export default SimpleBanner;
+export default SimpleBannerPodcat;

@@ -5,6 +5,7 @@ import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ResponsiveMenu from "./ResponsiveMenu";
 import useSticky from "../../hooks/useSticky";
 import Logo from "../../assets/logo1.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const { sticky } = useSticky();
@@ -34,26 +35,29 @@ function Navbar() {
           sticky ? "header-sticky" : ""
         } left-0 right-0 bg-navbar text-white border-b-[1px] border-primary/50`}
       >
-        <nav className="container flex items-center justify-between h-[80px] py-4  ">
+        <nav className="container flex items-center justify-between h-[80px] py-4   ">
           {/* Logo selection */}
-          <div className="md:text-3xl text-white">
+          <div className="md:text-3xl text-white hover:text-hover">
             <a href="#" className={`${sticky ? "block" : "hidden"}`}>
-              <img
-                src={Logo}
-                alt=""
-                className="sticky-logo"
-              />
+              <Link to="/" onClick={() => window.scrollTo}>
+                <img src={Logo} alt="" className="sticky-logo" />
+              </Link>
             </a>
             <a href="#" className={`${!sticky ? "block" : "hidden"}`}>
-              <FaHome size={30} />
+              <Link to="/" onClick={() => window.scrollTo}>
+                <FaHome size={30} />
+              </Link>
             </a>
           </div>
           {/* Desktop menu selection */}
           <div className="hidden md:block font-bold">
             <ul className="flex top-12 left-0 right-0  items-center gap-10">
               <li className=" group relative cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px]">
-                  Home{""}
+                <a
+                  href="#"
+                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
+                >
+                  Thèmes de santé{""}
                   <span>
                     <FaCaretDown
                       className=" transition-all 
@@ -64,24 +68,59 @@ function Navbar() {
                 {/* dropdown section */}
                 <div
                   className="absolute -left-9 z-[99999]
-                 hidden w-[150px] bg-white p-2 
-                 shadow-md text-black group-hover:block"
+                 hidden w-[250px] bg-white p-2 
+                 shadow-md  text-black
+                 dark:bg-gray-800 dark:text-white group-hover:block"
                 >
                   <ul className="space-y-3">
                     <li className="p-2 hover:bg-hover hover:text-white">
-                      Faites un don {/* dropdown section */}
+                      Actualité santé {/* dropdown section */}
                     </li>
                     <li className="p-2 hover:bg-hover hover:text-white">
-                      About us
+                      Attaques sur le système de santé(SSA)
                     </li>
                     <li className="p-2 hover:bg-hover hover:text-white">
-                      Privacy policy
+                      Couverture Sanitaire Universelle(CSU)
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Développement Proffessionnel Continue
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Ebola
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Covid
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Education sanitaire
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Maladie transmissible
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Médecine clinique
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Monitoring de la santé (Alert et Gaps)
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Santé mentale
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Santé publique
+                    </li>
+                    <li className="p-2 hover:bg-hover hover:text-white">
+                      Surveillance des maladies
                     </li>
                   </ul>
                 </div>
               </li>
+
               <li className=" group cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px]">
+                <a
+                  href="#"
+                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
+                >
                   Urgences sanitaire{" "}
                   <span>
                     <FaCaretDown
@@ -92,10 +131,10 @@ function Navbar() {
                 </a>
                 {/* dropdown full width section */}
                 <div
-                  className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                 bg-white p-2 t ext-black shadow-md group-hover:block"
+                  className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
+                 dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-3 gap-5">
+                  <div className="grid grid-cols-4 gap-5 ">
                     <div className=" overflow-hidden">
                       <img
                         src="https://picsum.photos/200"
@@ -104,10 +143,10 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3 text-black">
-                        Best Selling
+                      <h1 className="text-xl font-semibold pb-3  hover:text-hover">
+                        Actualités
                       </h1>
-                      <p className=" text-sm text-slate-600">
+                      <p className=" text-sm">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
                         temporibus ullam eligendi adipisci. Ea, consectetur.
@@ -116,61 +155,31 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-3 mt-4">
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                              Bulletins d'information
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                              Rapport de situation
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                              Offres d'emploi
+                            </h1>
+                          </div>
+                          <div>
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                              Autres documents
+                            </h1>
+                          </div>
+                          {/* <div>
                             <img
                               src="https://picsum.photos/180"
                               alt="not found"
                             />
-                          </div>
+                          </div> */}
                         </div>
                       </p>
                     </div>
@@ -178,7 +187,10 @@ function Navbar() {
                 </div>
               </li>
               <li className=" group cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px]">
+                <a
+                  href="#"
+                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
+                >
                   Centre des médias{" "}
                   <span>
                     <FaCaretDown
@@ -190,9 +202,10 @@ function Navbar() {
                 {/* dropdown full width section */}
                 <div
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                 bg-white p-2 t ext-black shadow-md group-hover:block"
+                  bg-white text-black
+                 dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-3 gap-5">
+                  <div className="grid grid-cols-4 gap-5">
                     <div className=" overflow-hidden">
                       <img
                         src="https://picsum.photos/200"
@@ -201,72 +214,54 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3 text-black">
-                        Comminiqué de presse
-                      </h1>
-                      <p className=" text-sm text-slate-600">
+                      <h1 className="text-xl font-semibold pb-3">Actualités</h1>
+                      <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
                         temporibus ullam eligendi adipisci. Ea, consectetur.
                         Sequi, eligendi doloribus, consequuntur, molestias vel
                         delectus quo consequatur aut magni natus esse sapiente
                         eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-3 mt-4">
+                        <div className=" grid grid-cols-3 mt-4 my-8">
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                              Comminiqué de presse
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                              <Link
+                                to="/data-load/videos"
+                                onClick={() => window.scroll}
+                              >
+                                Nos vidéos
+                              </Link>
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
-                            <img
-                              src="https://picsum.photos/180"
-                              alt="not found"
-                            />
+                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                              <Link
+                                to="/data-load/podcast"
+                                onClick={() => window.scroll}
+                              >
+                                Podcast
+                              </Link>
+                            </h1>
+                          </div>
+                          <div>
+                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                              <Link
+                                to="/data-load/blogs"
+                                onClick={() => window.scroll}
+                              >
+                                Blog
+                              </Link>
+                            </h1>
+                          </div>
+                          <div>
+                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                              Evenements
+                            </h1>
                           </div>
                         </div>
                       </p>
@@ -274,9 +269,11 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              
               <li className=" group cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px]">
+                <a
+                  href="#"
+                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
+                >
                   Notre action{" "}
                   <span>
                     <FaCaretDown
@@ -288,7 +285,8 @@ function Navbar() {
                 {/* dropdown full width section */}
                 <div
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                 bg-white p-2 t ext-black shadow-md group-hover:block"
+                  bg-white text-black 
+                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-3 gap-5">
                     <div className=" overflow-hidden">
@@ -298,11 +296,11 @@ function Navbar() {
                         className="max-h-[300px] w-full rounded-b-3xl object-fill"
                       />
                     </div>
-                    <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3 text-black">
-                        Best Selling
+                    <div className="col-span-2 ">
+                      <h1 className="text-xl font-semibold pb-3 hover:text-hover">
+                        Projet
                       </h1>
-                      <p className=" text-sm text-slate-600">
+                      <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
                         temporibus ullam eligendi adipisci. Ea, consectetur.
@@ -311,60 +309,34 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-3 mt-4">
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                              Projet encours
                             </h1>
-                            <ul className="space-y-2">
+                            {/* <ul className="space-y-2">
                               <li
-                                className="cursor-pointer text-black/80
+                                className="cursor-pointer 
                               hover:text-primary"
                               >
-                                Web Developement
+                                xxx
                               </li>
                               <li
-                                className="cursor-pointer text-black/80
+                                className="cursor-pointer 
                               hover:text-primary"
                               >
-                                Mobile Developement
+                                xxx
                               </li>
                               <li
-                                className="cursor-pointer text-black/80
+                                className="cursor-pointer 
                               hover:text-primary"
                               >
-                                Software Developement
+                                xxx
                               </li>
-                            </ul>
+                            </ul> */}
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                              Projets écoulés
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
-                          </div>
-                          <div>
-                            <img
-                              src="https://picsum.photos/180"
-                              alt="not found"
-                            />
                           </div>
                         </div>
                       </p>
@@ -374,7 +346,10 @@ function Navbar() {
               </li>
 
               <li className=" group cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px]">
+                <a
+                  href="#"
+                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
+                >
                   À Propos{" "}
                   <span>
                     <FaCaretDown
@@ -386,7 +361,8 @@ function Navbar() {
                 {/* dropdown full width section */}
                 <div
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                 bg-white p-2 t ext-black shadow-md group-hover:block"
+                  bg-white text-black
+                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-3 gap-5">
                     <div className=" overflow-hidden">
@@ -396,73 +372,42 @@ function Navbar() {
                         className="max-h-[300px] w-full rounded-b-3xl object-fill"
                       />
                     </div>
-                    <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3 text-black">
-                        Best Selling
+                    <div className="col-span-2 ">
+                      <h1 className="text-xl font-semibold pb-3 hover:text-hover">
+                        À propos
                       </h1>
-                      <p className=" text-sm text-slate-600">
+                      <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
                         temporibus ullam eligendi adipisci. Ea, consectetur.
                         Sequi, eligendi doloribus, consequuntur, molestias vel
                         delectus quo consequatur aut magni natus esse sapiente
                         eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-3 mt-4">
+                        <div className=" grid grid-cols-4 mt-4 ">
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold cursor-pointer hover:text-hover">
+                              <Link
+                                to="/contact"
+                                onClick={() => window.scrollTo(0, 0)}
+                              >
+                                Contactez-nous
+                              </Link>
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl font-semibold">
-                              Developement
+                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                              Partenariats
                             </h1>
-                            <ul className="space-y-2">
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Web Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Mobile Developement
-                              </li>
-                              <li
-                                className="cursor-pointer text-black/80
-                              hover:text-primary"
-                              >
-                                Software Developement
-                              </li>
-                            </ul>
                           </div>
                           <div>
-                            <img
-                              src="https://picsum.photos/180"
-                              alt="not found"
-                            />
+                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                              Financement
+                            </h1>
+                          </div>
+                          <div>
+                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                              Gouvernance
+                            </h1>
                           </div>
                         </div>
                       </p>
@@ -472,8 +417,8 @@ function Navbar() {
               </li>
               <li>
                 <button
-                  className="h-[40px] w-[150px] rounded-full 
-                              bg-hover hover:bg-principal/90"
+                  className="h-[40px] w-[180px] rounded-lg 
+                              bg-hover hover:bg-hover/90"
                 >
                   Faire un don
                 </button>
@@ -481,7 +426,7 @@ function Navbar() {
               <li className=" group relative cursor-pointer">
                 <a
                   href="#"
-                  className="flex items-center gap-[20px] h-[72px] text-white font-bold"
+                  className="flex items-center gap-[20px] h-[72px] text-white font-bold hover:text-hover"
                 >
                   Choisir la langue
                   <span>
@@ -506,12 +451,12 @@ function Navbar() {
               {/* Light and dark mode switcher */}
               {theme === "dark" ? (
                 <BiSolidSun
-                  className="text-2xl cursor-pointer"
+                  className="text-2xl cursor-pointer hover:text-hover"
                   onClick={() => setTheme("light")}
                 />
               ) : (
                 <BiSolidMoon
-                  className="text-2xl cursor-pointer"
+                  className="text-2xl cursor-pointer hover:text-hover"
                   onClick={() => setTheme("dark")}
                 />
               )}
