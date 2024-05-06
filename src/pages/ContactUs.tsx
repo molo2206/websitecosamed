@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <div className=" dark:bg-gray-900">
       <Layout />
-      <section className="py-16">
+      <section className="py-16 ">
         <div className="max-w-6xl mx-auto md:p-16 xl:p-20 ">
           <div className="lg:w-2/3 space-y-5 text-center mx-auto">
             <h1
@@ -23,7 +23,7 @@ const ContactUs = () => {
               nostrum ipsa nesciunt eaque.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 px-8 pt-6 pb-8 mb-4">
             <div>
               <address>
                 <div className=" mb-6">
@@ -45,59 +45,54 @@ const ContactUs = () => {
               </address>
             </div>
             <div className="lg:col-span-2">
-              <form action=" flexed ">
+              <form
+                action=""
+                className="bg-white shadow-md rounded
+                 px-8 pt-6 pb-8 mb-4 dark:bg-slate-900 border border-slate-400 dark:text-slate-400"
+              >
                 <div className="mb-4">
                   <label
-                    className="font-semibold mb-2 text-slate-600 dark:text-slate-400"
-                    htmlFor=""
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="username"
                   >
-                    Your name
+                    Username
                   </label>
-                  <br />
                   <input
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="username"
                     type="text"
-                    placeholder=""
-                    className="  w-full px-3 py-2 rounded-lg
-                    bg-white border focus:border-hover border-principal"
-                    required
+                    placeholder="Username"
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-6">
                   <label
-                    className="font-semibold mb-2  text-slate-600 dark:text-slate-400"
-                    htmlFor=""
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="username"
                   >
-                    Your Email
+                    Email
                   </label>
                   <input
-                    type="email"
-                    className=" w-full px-3 py-2 rounded-lg  
-                 bg-white focus:border-hover border border-principal"
-                    required
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="username"
+                    type="text"
+                    placeholder="Email"
                   />
                 </div>
-                <div className="mb-4">
+                <div className="mb-6">
                   <label
-                    className="font-semibold mb-2 text-slate-600 dark:text-slate-400"
-                    htmlFor=""
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="username"
                   >
-                    Your Message
+                    Message
                   </label>
-                  <textarea
-                    rows={10}
-                    className=" w-full px-3 py-2 rounded-lg  bg-white
-                    border border-principal border-hover"
-                    placeholder=""
+                  <textarea rows={10}
+                    className="shadow appearance-none border rounded w-full py-2 px-3
+                     text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="message"
+                    name="message"
+                    type="text"
+                    placeholder="Your message"
                   ></textarea>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="bg-hover font-semibold text-white h-[60px] w-[150px]
-               px-4 py-2 rounded-lg hover:pink-600 focus:outline-white"
-                  >
-                    Send Message
-                  </button>
                 </div>
               </form>
             </div>
