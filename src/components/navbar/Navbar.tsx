@@ -40,7 +40,7 @@ function Navbar() {
           <div className="md:text-3xl text-white hover:text-hover">
             <a href="#" className={`${sticky ? "block" : "hidden"}`}>
               <Link to="/" onClick={() => window.scrollTo}>
-                <img src={Logo} alt="" className="sticky-logo" />
+                <img src={Logo} alt="" className="sticky-logo h-[65px] w-[70px]" />
               </Link>
             </a>
             <a href="#" className={`${!sticky ? "block" : "hidden"}`}>
