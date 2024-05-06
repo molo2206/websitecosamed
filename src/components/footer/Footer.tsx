@@ -8,6 +8,7 @@ import {
   FaMobileAlt,
 } from "react-icons/fa";
 import FooterLinks from "./FooterLinks";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const importantLinks = [
@@ -116,11 +117,13 @@ const Footer = () => {
                     <a href="" className=" duration-200 hover:scale-105">
                       <FaLinkedinIn className=" text-3xl" />
                     </a>
-                    
                   </div>
-                  <button className="h-[50px] w-[200px] rounded-full bg-hover duration-200 hover:scale-105">
-                       Rejoindre la Communauté
-                    </button>
+                  <button
+                    className="h-[50px] w-[250px] rounded-lg font-bold bg-hover
+                   duration-200 hover:scale-105"
+                  >
+                    <Link to="/community/join" onClick={()=>window.scroll}>Rejoindre la Communauté</Link>
+                  </button>
                 </div>
               </div>
             </div>

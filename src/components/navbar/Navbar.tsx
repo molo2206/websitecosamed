@@ -116,7 +116,7 @@ function Navbar() {
                 </div>
               </li>
 
-              <li className=" group cursor-pointer">
+              <li className="group cursor-pointer ">
                 <a
                   href="#"
                   className="flex items-center gap-[2px] h-[72px] hover:text-hover"
@@ -153,25 +153,45 @@ function Navbar() {
                         Sequi, eligendi doloribus, consequuntur, molestias vel
                         delectus quo consequatur aut magni natus esse sapiente
                         eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-3 mt-4">
+                        <div className=" grid grid-cols-4 mt-4">
                           <div>
                             <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
-                              Bulletins d'information
+                              <Link
+                                to="/data-loading/newsletters"
+                                onClick={() => window.scroll}
+                              >
+                                Bulletins d'information
+                              </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
-                              Rapport de situation
+                              <Link
+                                to="/data-loading/reports"
+                                onClick={() => window.scroll}
+                              >
+                                Rapport de situation
+                              </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
-                              Offres d'emploi
+                              <Link
+                                to="/data-loading/jobopenings"
+                                onClick={() => window.scroll}
+                              >
+                                Offres d'emploi
+                              </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
-                              Autres documents
+                              <Link
+                                to="/data-loading/othersdoc"
+                                onClick={() => window.scroll}
+                              >
+                                Autres documents
+                              </Link>
                             </h1>
                           </div>
                           {/* <div>
@@ -201,11 +221,10 @@ function Navbar() {
                 </a>
                 {/* dropdown full width section */}
                 <div
-                  className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                  bg-white text-black
-                 dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
+                  className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
+                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-4 gap-5">
+                  <div className="grid grid-cols-4 mt-4">
                     <div className=" overflow-hidden">
                       <img
                         src="https://picsum.photos/200"
@@ -222,16 +241,16 @@ function Navbar() {
                         Sequi, eligendi doloribus, consequuntur, molestias vel
                         delectus quo consequatur aut magni natus esse sapiente
                         eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-3 mt-4 my-8">
+                        <div className="grid grid-cols-5 mt-5">
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
                               Comminiqué de presse
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
                               <Link
-                                to="/data-load/videos"
+                                to="/data-loading/videos"
                                 onClick={() => window.scroll}
                               >
                                 Nos vidéos
@@ -239,9 +258,9 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
                               <Link
-                                to="/data-load/podcast"
+                                to="/data-loading/podcast"
                                 onClick={() => window.scroll}
                               >
                                 Podcast
@@ -249,9 +268,9 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
                               <Link
-                                to="/data-load/blogs"
+                                to="/data-loading/blogs"
                                 onClick={() => window.scroll}
                               >
                                 Blog
@@ -259,7 +278,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold">
+                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
                               Evenements
                             </h1>
                           </div>
