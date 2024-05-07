@@ -1,11 +1,8 @@
 import PodcastCard from "../components/blogs/PodcastCard";
-import Footer from "../components/footer/Footer";
-import Layout from "../components/navbar/Layout";
 import SimpleBannerPodcat from "../components/simpleBanner/SimpleBannerPodcat";
 const Podcast = () => {
   return (
     <div className=" dark:bg-slate-900 w-full">
-      <Layout />
       <div className=" dark:bg-gray-900 dark:text-white">
         <section className="container mb-10 py-8">
           <SimpleBannerPodcat podcast="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761127386&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" />
@@ -20,7 +17,6 @@ const Podcast = () => {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

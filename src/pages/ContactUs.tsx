@@ -1,11 +1,6 @@
-import Layout from "../components/navbar/Layout";
-import Footer from "../components/footer/Footer";
-import { FaTelegram, FaWhatsapp } from "react-icons/fa";
-
 const ContactUs = () => {
   return (
     <div className=" dark:bg-gray-900">
-      <Layout />
       <section className="py-16 ">
         <div className="max-w-6xl mx-auto md:p-16 xl:p-20 ">
           <div className="lg:w-2/3 space-y-5 text-center mx-auto">
@@ -85,7 +80,8 @@ const ContactUs = () => {
                   >
                     Message
                   </label>
-                  <textarea rows={10}
+                  <textarea
+                    rows={10}
                     className="shadow appearance-none border rounded w-full py-2 px-3
                      text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="message"
@@ -99,7 +95,6 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

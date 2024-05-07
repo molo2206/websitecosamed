@@ -1,5 +1,3 @@
-import Layout from "../components/navbar/Layout";
-import Footer from "../components/footer/Footer";
 import Img1 from "../assets/blogs/j1.jpg";
 import Img2 from "../assets/blogs/j2.jpg";
 import Img3 from "../assets/blogs/j6.jpeg";
@@ -9,7 +7,6 @@ import SimpleBannerBulletin from "../components/simpleBanner/SimpleBannerBulleti
 const Offres = () => {
   return (
     <div className=" dark:bg-slate-900 w-full dark:text-white ">
-      <Layout />
       <div>
         <section className="container mb-10 py-8">
           <SimpleBannerBulletin img={Img1} />
@@ -24,7 +21,6 @@ const Offres = () => {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

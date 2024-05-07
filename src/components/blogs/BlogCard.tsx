@@ -17,11 +17,11 @@ const BlogCard = ({ Img }) => {
           <p className=" line-clamp-1">By Molo</p>
         </div>
         <div className="space-y-2 py3">
-          <h1 className=" line-clamp-1 font-bold">
+          <h1 className="font-montserrat line-clamp-1 font-bold">
             How to grow business. How to grow your businessHow to grow business.
             How to grow your business.
           </h1>
-          <p>
+          <p className="font-montserrat">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ea
             minima quisquam, consequatur quod iste, rem odio eveniet aliquid
             ipsam facere ab debitis, dignissimos quis! Enim quisquam quidem
