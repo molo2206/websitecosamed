@@ -5,10 +5,10 @@ const ResponsiveMenu = ({ showMenu }) => {
   return (
     <div
       className={` ${
-        showMenu ? "left-0" :"-left-[100%]"
+        showMenu ? "left-0" :"-left-[100%]" 
       } h-screen w-[75%] bg-principal fixed top-0 z-50
        transition-all duration-500 pt-24 pb-6 px-8 
-       flex justify-between text-white`}
+       flex justify-between text-white dark:bg-slate-900 dark:text-white`}
     >
       <div>
         <nav className="mt-12">
