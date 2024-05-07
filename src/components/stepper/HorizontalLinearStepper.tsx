@@ -47,9 +47,9 @@ const HorizontalLinearStepper = () => {
     }
   };
   return (
-    <div className="w-full h-[700px] bg-slate-300 flex justify-center items-center ">
+    <div className="w-full h-[700px] bg-slate-white flex justify-center items-center ">
       <ToastContainer />
-      <div className="card w-[370px]  rounded-md shadow-md bg-white p-5">
+      <div className="card w-[490px]  rounded-md shadow-md bg-white p-5">
         <div className="flex justify-center items-center">
           {formArray.map((v, i) => (
             <>
