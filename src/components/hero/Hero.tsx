@@ -107,6 +107,7 @@ const Hero = () => {
         slidesPerView={1}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
+      
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSlideChange={() => console.log("slide change")}
