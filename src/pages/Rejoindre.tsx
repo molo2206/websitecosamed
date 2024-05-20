@@ -48,7 +48,7 @@ const Rejoindre = () => {
   };
   return (
     <div className="">
-      <div className="container px-4 h-screen flex">
+      <div className="container px-4 h-[1000px] flex">
         <div className="bg-endeleya pt-8 pb-16 lg:pt-16 lg:pb-24 w-[0%] md:w-[40%] sm-[0%] lg-[40%] md:block sm:hidden hidden">
           <div className="container md:block sm:hidden hidden">
             <div className="">

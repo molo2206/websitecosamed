@@ -7,9 +7,12 @@ import SimpleBannerBulletin from "../components/simpleBanner/SimpleBannerBulleti
 
 const Rapport = () => {
   return (
-    <div className=" dark:bg-slate-900 w-full dark:text-white ">
+    <div className=" dark:bg-slate-600 w-full dark:text-white ">
       <div>
-        <section className="container mb-10 py-8">
+        <div className="container py-2 font-semibold">
+           Rapport/Accueil
+        </div>
+        <section className="mb-10 ">
           <SimpleBannerBulletin img={Img1} />
           <h1 className=" mb-8 border-l-8 py-2 pl-2 text-center text-3xl font-bold">
             Our latest reports

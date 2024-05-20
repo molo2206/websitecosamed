@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Logo from "../../assets/logo1.png";
 import {
   FaFacebook,
@@ -11,6 +11,13 @@ import FooterLinks from "./FooterLinks";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  function getDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    return `${year}`;
+  }
+  const [currentDate, setCurrentDate] = useState(getDate());
+
   const importantLinks = [
     {
       name: "Mission",
@@ -50,17 +57,12 @@ const Footer = () => {
   ];
   return (
     <>
-      <footer className="text-white rounded-t-3xl bg-gradient-to-r bg-principal">
+      <footer className="text-white rounded-t-3xl bg-gradient-to-r bg-principal font-montserrat">
         <div className=" container mx-auto  p-4">
           {/* Footer Contain section */}
-          <div className="grid py-2 md:grid-cols-3 header__sticky">
+          <div className="grid py-2 md:grid-cols-3 header__sticky font-montserrat">
             <div className="px-2 py-4">
-              <h1 className=" mb-3 text-justify text-xl font-bold sm:text-left sm:text-3xl ">
-                <a href="/#home" className="">
-                  <img src={Logo} alt="" className="sticky-logo " />
-                </a>
-              </h1>
-              <p className="">
+              <p className="font-montserrat text-xl">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos
                 eum alias cumque minima modi mollitia, dolor laudantium ratione
                 repellendus quod impedit possimus maxime facere aspernatur fugit
@@ -119,10 +121,12 @@ const Footer = () => {
                     </a>
                   </div>
                   <button
-                    className="h-[50px] w-[250px] rounded-lg font-bold bg-hover
-                   duration-200 hover:scale-105"
+                    className="h-[50px] w-[250px] rounded-lg font-bold bg-white
+                   duration-200 hover:scale-105 text-principal"
                   >
-                    <Link to="/community/join" onClick={()=>window.scroll}>Rejoindre la Communauté</Link>
+                    <Link to="/community/join" onClick={() => window.scroll}>
+                      Rejoindre la Communauté
+                    </Link>
                   </button>
                 </div>
               </div>
@@ -130,8 +134,17 @@ const Footer = () => {
           </div>
           {/*    Footer copyright section */}
           <div className=" bottom-footer">
-            <p className=" border-t-2 border-gray-300/50 py-6 text-center">
-              Copyright © 2024. All Rights Reserved
+            <div className="md:inline-flex my-10 md:ml-10 shadow rounded-sm w-full  justify-center">
+              <img
+                src={Logo}
+                alt="Logo"
+                className=" object-center sticky-logo  sm:w-60 "
+              />
+            </div>
+          </div>
+          <div className=" bottom-footer">
+            <p className=" border-t-2 border-gray-300/50 py-8 text-center">
+              Politique de confidentialité © {currentDate}.
             </p>
           </div>
         </div>

@@ -35,12 +35,16 @@ function Navbar() {
           sticky ? "header-sticky" : ""
         } left-0 right-0 bg-navbar text-white border-b-[1px] border-primary/50`}
       >
-        <nav className="container flex items-center justify-between h-[80px] py-4   ">
+        <nav className="container flex items-center justify-between h-[80px] py-4 ">
           {/* Logo selection */}
-          <div className="md:text-3xl text-white hover:text-hover">
+          <div className=" text-white ">
             <a href="#" className={`${sticky ? "block" : "hidden"}`}>
               <Link to="/" onClick={() => window.scrollTo}>
-                <img src={Logo} alt="" className="sticky-logo h-[65px] w-[70px]" />
+                <img
+                  src={Logo}
+                  alt=""
+                  className="sticky-logo sm:w-60   sm:h-70"
+                />
               </Link>
             </a>
             <a href="#" className={`${!sticky ? "block" : "hidden"}`}>
@@ -50,13 +54,10 @@ function Navbar() {
             </a>
           </div>
           {/* Desktop menu selection */}
-          <div className="hidden md:block font-bold">
-            <ul className="flex top-12 left-0 right-0  items-center gap-10">
+          <div className="hidden md:block font-bold font-montserrat">
+            <ul className="flex top-12 left-0 right-0  items-center gap-10 font-montserrat">
               <li className=" group relative cursor-pointer">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
-                >
+                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   Thèmes de santé{""}
                   <span>
                     <FaCaretDown
@@ -73,43 +74,33 @@ function Navbar() {
                  dark:bg-gray-800 dark:text-white group-hover:block"
                 >
                   <ul className="space-y-3">
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">
                       Actualité santé {/* dropdown section */}
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">
                       Attaques sur le système de santé(SSA)
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">
                       Couverture Sanitaire Universelle(CSU)
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">
                       Développement Proffessionnel Continue
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
-                      Ebola
-                    </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
-                      Covid
-                    </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">Ebola</li>
+                    <li className="p-2  hover:text-white">Covid</li>
+                    <li className="p-2  hover:text-white">
                       Education sanitaire
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">
                       Maladie transmissible
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
-                      Médecine clinique
-                    </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">Médecine clinique</li>
+                    <li className="p-2  hover:text-white">
                       Monitoring de la santé (Alert et Gaps)
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
-                      Santé mentale
-                    </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
-                      Santé publique
-                    </li>
-                    <li className="p-2 hover:bg-hover hover:text-white">
+                    <li className="p-2  hover:text-white">Santé mentale</li>
+                    <li className="p-2  hover:text-white">Santé publique</li>
+                    <li className="p-2  hover:text-white">
                       Surveillance des maladies
                     </li>
                   </ul>
@@ -117,10 +108,7 @@ function Navbar() {
               </li>
 
               <li className="group cursor-pointer ">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
-                >
+                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   Urgences sanitaire{" "}
                   <span>
                     <FaCaretDown
@@ -143,7 +131,7 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3  hover:text-hover">
+                      <h1 className="text-xl font-semibold pb-3  ">
                         Actualités
                       </h1>
                       <p className=" text-sm">
@@ -155,7 +143,7 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-4 mt-4">
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/newsletters"
                                 onClick={() => window.scroll}
@@ -165,7 +153,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/reports"
                                 onClick={() => window.scroll}
@@ -175,7 +163,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/jobopenings"
                                 onClick={() => window.scroll}
@@ -185,7 +173,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
@@ -207,10 +195,7 @@ function Navbar() {
                 </div>
               </li>
               <li className=" group cursor-pointer">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
-                >
+                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   Centre des médias{" "}
                   <span>
                     <FaCaretDown
@@ -222,9 +207,9 @@ function Navbar() {
                 {/* dropdown full width section */}
                 <div
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
-                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
+                 dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-4 mt-4">
+                  <div className="grid grid-cols-4 gap-5 ">
                     <div className=" overflow-hidden">
                       <img
                         src="https://picsum.photos/200"
@@ -233,7 +218,9 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3">Actualités</h1>
+                      <h1 className="text-xl font-semibold pb-3  ">
+                        Actualités
+                      </h1>
                       <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
@@ -243,12 +230,12 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className="grid grid-cols-5 mt-5">
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               Comminiqué de presse
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/videos"
                                 onClick={() => window.scroll}
@@ -258,7 +245,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/podcast"
                                 onClick={() => window.scroll}
@@ -268,7 +255,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               <Link
                                 to="/data-loading/blogs"
                                 onClick={() => window.scroll}
@@ -278,7 +265,7 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-principal text-xl font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-principal text-xl font-semibold ">
                               Evenements
                             </h1>
                           </div>
@@ -289,10 +276,7 @@ function Navbar() {
                 </div>
               </li>
               <li className=" group cursor-pointer">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
-                >
+                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   Notre action{" "}
                   <span>
                     <FaCaretDown
@@ -316,9 +300,7 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2 ">
-                      <h1 className="text-xl font-semibold pb-3 hover:text-hover">
-                        Projet
-                      </h1>
+                      <h1 className="text-xl font-semibold pb-3 ">Projet</h1>
                       <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
@@ -328,7 +310,7 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-3 mt-4">
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold ">
                               Projet encours
                             </h1>
                             {/* <ul className="space-y-2">
@@ -353,7 +335,7 @@ function Navbar() {
                             </ul> */}
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold ">
                               Projets écoulés
                             </h1>
                           </div>
@@ -365,10 +347,7 @@ function Navbar() {
               </li>
 
               <li className=" group cursor-pointer">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] h-[72px] hover:text-hover"
-                >
+                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   À Propos{" "}
                   <span>
                     <FaCaretDown
@@ -392,9 +371,7 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2 ">
-                      <h1 className="text-xl font-semibold pb-3 hover:text-hover">
-                        À propos
-                      </h1>
+                      <h1 className="text-xl font-semibold pb-3 ">À propos</h1>
                       <p className=" text-sm ">
                         Lorem ipsum dolor sit, amet consectetur adipisicing
                         elit. Officia unde voluptatibus possimus obcaecati nisi
@@ -404,7 +381,7 @@ function Navbar() {
                         eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-4 mt-4 ">
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold cursor-pointer hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold cursor-pointer ">
                               <Link
                                 to="/contact"
                                 onClick={() => window.scrollTo(0, 0)}
@@ -414,17 +391,17 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold ">
                               Partenariats
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold ">
                               Financement
                             </h1>
                           </div>
                           <div>
-                            <h1 className="pb-1 text-xl text-principal font-semibold hover:text-hover">
+                            <h1 className="pb-1 text-xl text-principal font-semibold ">
                               Gouvernance
                             </h1>
                           </div>
@@ -435,17 +412,19 @@ function Navbar() {
                 </div>
               </li>
               <li>
-                <button
-                  className="h-[40px] w-[180px] rounded-lg 
-                              bg-hover hover:bg-hover/90"
-                >
-                  Faire un don
-                </button>
+                <Link to="/community/donate" onClick={()=>window.scroll}>
+                  <button
+                    className="h-[40px] w-[180px] rounded-lg 
+                              bg-white text-principal"
+                  >
+                    Faire un don
+                  </button>
+                </Link>
               </li>
               <li className=" group relative cursor-pointer">
                 <a
                   href="#"
-                  className="flex items-center gap-[20px] h-[72px] text-white font-bold hover:text-hover"
+                  className="flex items-center gap-[20px] h-[72px] text-white font-bold "
                 >
                   Choisir la langue
                   <span>
@@ -456,12 +435,12 @@ function Navbar() {
                   </span>
                 </a>
                 {/* dropdown section */}
-                <div className="absolute -center-9 z-[99999] hidden w-[150px] bg-white p-2 shadow-md text-black group-hover:block">
+                <div className="absolute -center-9 z-[99999] hidden w-[150px] rounded-lg bg-white p-2 shadow-md text-black group-hover:block">
                   <ul className="space-y-3">
-                    <li className="p-2 hover:bg-hover hover:text-white cursor-pointer">
+                    <li className="p-2  hover:text-principal cursor-pointer">
                       Français {/* dropdown section */}
                     </li>
-                    <li className="p-2 hover:bg-hover hover:text-white cursor-pointer">
+                    <li className="p-2  hover:text-principal cursor-pointer">
                       Anglais
                     </li>
                   </ul>
@@ -470,12 +449,12 @@ function Navbar() {
               {/* Light and dark mode switcher */}
               {theme === "dark" ? (
                 <BiSolidSun
-                  className="text-2xl cursor-pointer hover:text-hover"
+                  className="text-2xl cursor-pointer "
                   onClick={() => setTheme("light")}
                 />
               ) : (
                 <BiSolidMoon
-                  className="text-2xl cursor-pointer hover:text-hover"
+                  className="text-2xl cursor-pointer "
                   onClick={() => setTheme("dark")}
                 />
               )}

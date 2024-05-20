@@ -19,6 +19,7 @@ import Rejoindre from "./pages/Rejoindre";
 import Layout from "./components/navbar/Layout";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "./components/navbar/ScrollToTop";
+import DonateTrue from "./pages/DonateTrue";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/data-loading/jobopenings" element={<Offres />} />
             <Route path="/data-loading/othersdoc" element={<AutreDoc />} />
             <Route path="/community/join" element={<Rejoindre />} />
+            <Route path="/community/donate" element={<DonateTrue />} />
             {/* <Route path="/videos" element={<Videos/>}></Route>
             <Route path="/evenement" element={<Evenement/>}></Route>
             <Route path="/galery" element={<Photos/>}></Route>
