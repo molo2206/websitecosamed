@@ -8,14 +8,9 @@ import {
 	ReactNode,
 } from 'react'
 import { useToasts } from 'react-toast-notifications'
-import AuthServices from '@/services/AuthServices'
 import { useNavigate } from 'react-router-dom'
-import SettingServices from '@/services/SettingServices'
-import useValidation from '@/hooks/useValidation'
-import CountryServices from '@/services/CountryServices'
-import useAsync from '@/hooks/useAsync'
 import Cookies from 'js-cookie'
-import i18n from '@/i18n'
+import i18n from '../i18n'
 const AuthContext = createContext<any>({})
 
 export function useAuthContext() {
@@ -30,7 +25,6 @@ const authSessionKey = '_DICI_AUTH'
 const authToken = '_DICI_TOKEN'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-	const {resetInput} = useValidation({})
 	const [refresh, forceUpdate] = useReducer((x) => x + 1, 0)
 	const [isEdit, setIsEdit] = useState(false)
 	const [selected, setSelected] = useState(null)
@@ -75,14 +69,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	}
 
 	const toggleModal = () => {
-		resetInput()
 		setIsOpen(!isOpen)
 	}
 	const toggleModalDelete = () => {
 		showModalDelete(false)
 	}
 	const closeModal = () => {
-		resetInput()
 		setIsEdit(false)
 		setSelected(null)
 		setIsOpen(false)
@@ -148,22 +140,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		setToken(undefined)
 	}, [setUser, setToken])
 
-	const { data: _user } = useAsync(AuthServices._showProfile)
-	useEffect(() => {
-		if(_user){
-saveUser(_user)
-
-		}
-		
-		
-	}, [_user])
-
-	const { data: globalSetting, loading: loadingSettings } = useAsync(
-		SettingServices.getGlobalSettings
-	)
-	const { data: languages } = useAsync(SettingServices.getLanguage)
-	const { data: countries } = useAsync(CountryServices.getCountry)
-
+	
 	return (
 		<AuthContext.Provider
 			value={{
@@ -175,7 +152,6 @@ saveUser(_user)
 				removeSession,
 				errorNotification,
 				successNotification,
-				globalSetting,
 				refresh,
 				forceUpdate,
 				handleUpdate,
@@ -188,10 +164,8 @@ saveUser(_user)
 				closeModal,
 				selectedRole,
 				setSelectedRole,
-				countries,
 				lang,
 				handleLanguageChange,
-				languages,
 				toggleDropDown,
 				dropDownOpen,
 				selectedType,
@@ -202,7 +176,6 @@ saveUser(_user)
 				changePageLang,
 				imageUrl,
 				setImageUrl,
-				loadingSettings,
 				logo1,
 				logo2,
 				setIsOpen,

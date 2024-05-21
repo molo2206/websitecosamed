@@ -1,12 +1,13 @@
 import axios from 'axios'
 import { ReactNode } from 'react'
-import { BASE_URL } from '../../utils/heleprs'
+import { BASE_URL } from '../utils/heleprs'
 const instance = axios.create({
 	baseURL: BASE_URL,
 	timeout: 50000,
 	headers: {
 		Accept: 'application/json',
 		'Content-Type': 'application/json',
+		//Authorization:"Bearer 74|YWAaOoLAYDc7bggEg9qhtV14tYGABjeiDsvGn4wt88a337a1"
 	},
 })
 
@@ -14,17 +15,7 @@ const AxiosInterceptor = ({ children }: { children: ReactNode }) => {
 	return children
 }
 
-instance.interceptors.request.use((config:any) => {
-	return {
-		...config,
-		headers: {
-			Accept: 'application/json',
-			authorization: localStorage.getItem('TOKEN_OBJECT_NAME')
-				? `Bearer ${JSON.parse(localStorage.getItem('TOKEN_OBJECT_NAME') || '')}`
-				: undefined,
-		},
-	}
-})
+
 
 instance.interceptors.response.use(
 	function (response) {

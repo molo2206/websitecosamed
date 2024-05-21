@@ -10,7 +10,6 @@ const SimpleBanner = () => {
                 className="aspect-video w-full"
                 src="https://www.youtube.com/embed/gRWMen27Uio?si=VtHMh9xCxQ6ccFh8"
                 title="Youtube video player"
-                frameborder="0"
                 allow="accelerometer: autoplay; clipboard-write;encrypted-media;
             gyroscope;picture-in-picture;web-share"
                 allowFullScreen

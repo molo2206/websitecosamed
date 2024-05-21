@@ -1,14 +1,16 @@
-import CountUp from "react-countup";
-const PodcastCard = ({ podcast }) => {
+interface props{
+  blog?:any
+}
+
+const PodcastCard = ({blog}:props) => {
   return (
     <>
       <div className="p-4 shadow-lg">
         <div className=" overflow-hidden">
           <iframe
             className="aspect-video w-full"
-            src={podcast}
+            src={blog.podcast}
             title="Youtube video player"
-            frameborder="0"
             allow="accelerometer: autoplay; clipboard-write;encrypted-media;
           gyroscope;picture-in-picture;web-share"
             allowFullScreen

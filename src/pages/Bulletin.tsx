@@ -15,10 +15,10 @@ const Bulletin = () => {
             Our Latest Newsletters
           </h1>
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <BulletinCard Img={Img1} />
+            {/* <BulletinCard Img={Img1} />
             <BulletinCard Img={Img2} />
             <BulletinCard Img={Img3} />
-            <BulletinCard Img={Img4} />
+            <BulletinCard Img={Img4} /> */}
           </div>
         </section>
       </div>

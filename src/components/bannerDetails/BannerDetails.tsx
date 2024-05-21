@@ -1,4 +1,8 @@
-const BannerDetails = ({ reverse }) => {
+interface props{
+  reverse?:any
+}
+
+const BannerDetails = ({reverse}:props) => {
   return (
     <section className=" bg-slate-100 dark:bg-slate-900 dark:text-white">
       <div className=" container flex flex-col items-center justify-center py-10 md:h-[500px]">

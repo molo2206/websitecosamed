@@ -38,7 +38,7 @@ const useAsync = (asyncFunction: any) => {
 			source.cancel('error canceled')
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	},)
+	},[])
 
 	return {
 		data,

@@ -1,19 +1,21 @@
+interface props{
+  bulletin?:any
+}
 
-
-const BulletinCard = ({ Img }) => {
+const BulletinCard = ({bulletin}:props) => {
   return (
     <>
     <div className="p-4 shadow-lg">
       <div className=" overflow-hidden">
         <img
-          src={Img}
+          src={bulletin.image}
           alt="not found"
           className="mx-auto h-[250px] w-full 
           object-cover transition duration-700 hover:skew-x-2 hover:scale-110"
         />
       </div>
       <div className=" flex justify-between py-2 text-slate-600">
-        <p>April 23, 2024</p>
+        <p></p>
         <p className=" line-clamp-1">By Molo</p>
       </div>
       <div className="space-y-2 py3">

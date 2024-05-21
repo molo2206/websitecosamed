@@ -1,14 +1,15 @@
-
-const VideoCard = ({ video }) => {
+interface  props{
+  blog?:any
+}
+const VideoCard = ({blog}:props) => {
   return (
     <>
       <div className="p-4 shadow-lg">
         <div className=" overflow-hidden">
           <iframe
             className="aspect-video w-full"
-            src={video}
+            src={blog.video}
             title="Youtube video player"
-            frameborder="0"
             allow="accelerometer: autoplay; clipboard-write;encrypted-media;
             gyroscope;picture-in-picture;web-share"
             allowFullScreen

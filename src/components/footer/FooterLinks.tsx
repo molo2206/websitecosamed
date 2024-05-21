@@ -1,7 +1,8 @@
-import React from "react";
+interface props{
+  links?:any;
+}
+const FooterLinks = ({links}:props) => {
 
-const FooterLinks = ({ links }) => {
-  console.log("FooterLinks", links);
   return (
     <>
       {links.map((link) => (

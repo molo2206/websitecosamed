@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import "react-toastify/dist/ReactToastify.css";
+import 'react-loading-skeleton/dist/skeleton.css'
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";

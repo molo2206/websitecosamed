@@ -86,7 +86,6 @@ const ContactUs = () => {
                      text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="message"
                     name="message"
-                    type="text"
                     placeholder="Your message"
                   ></textarea>
                 </div>
