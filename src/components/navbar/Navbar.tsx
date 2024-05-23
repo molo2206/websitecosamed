@@ -105,7 +105,7 @@ function Navbar() {
                                 to="/data-loading/newsletters"
                                 onClick={() => window.scroll}
                               >
-                                {t('Healthnews')}
+                                {t("Healthnews")}
                               </Link>
                             </h1>
                           </div>
@@ -115,7 +115,7 @@ function Navbar() {
                                 to="/data-loading/reports"
                                 onClick={() => window.scroll}
                               >
-                                {t('Attack')}
+                                {t("Attack")}
                               </Link>
                             </h1>
                           </div>
@@ -125,7 +125,7 @@ function Navbar() {
                                 to="/data-loading/jobopenings"
                                 onClick={() => window.scroll}
                               >
-                                {t('Blanket')}
+                                {t("Blanket")}
                               </Link>
                             </h1>
                           </div>
@@ -135,7 +135,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Développement Proffessionnel Continue
+                                {t("Developpement")}
                               </Link>
                             </h1>
                           </div>
@@ -145,7 +145,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Ebola
+                                {t("Ebola")}
                               </Link>
                             </h1>
                           </div>
@@ -155,7 +155,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Covid
+                                {t("Covid")}
                               </Link>
                             </h1>
                           </div>
@@ -165,7 +165,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Education sanitaire
+                                {t("Health")}
                               </Link>
                             </h1>
                           </div>
@@ -175,7 +175,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Maladie transmissible
+                                {t("Disease")}
                               </Link>
                             </h1>
                           </div>
@@ -185,7 +185,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Médecine clinique
+                                {t("Clinical")}
                               </Link>
                             </h1>
                           </div>
@@ -195,7 +195,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Monitoring de la santé (Alert et Gaps)
+                                {t("Monitoring")}
                               </Link>
                             </h1>
                           </div>
@@ -205,7 +205,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Santé mentale
+                                {t("Mental")}
                               </Link>
                             </h1>
                           </div>
@@ -215,7 +215,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Santé publique
+                                {t("PublicHealth")}
                               </Link>
                             </h1>
                           </div>
@@ -225,7 +225,7 @@ function Navbar() {
                                 to="/data-loading/othersdoc"
                                 onClick={() => window.scroll}
                               >
-                                Surveillance des maladies
+                                {t("Surveillance")}
                               </Link>
                             </h1>
                           </div>
@@ -259,69 +259,58 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3  ">
-                        Actualités
-                      </h1>
-                      <p className=" text-sm">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Officia unde voluptatibus possimus obcaecati nisi
-                        temporibus ullam eligendi adipisci. Ea, consectetur.
-                        Sequi, eligendi doloribus, consequuntur, molestias vel
-                        delectus quo consequatur aut magni natus esse sapiente
-                        eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-4 mt-4">
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/newsletters"
-                                onClick={() => window.scroll}
-                              >
-                                <FaBlog size={40} />
-                                Bulletins d'information
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/reports"
-                                onClick={() => window.scroll}
-                              >
-                                <BiSolidReport size={40} />
-                                Rapport de situation
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/jobopenings"
-                                onClick={() => window.scroll}
-                              >
-                                <MdLocalOffer size={40} />
-                                Offres d'emploi
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/othersdoc"
-                                onClick={() => window.scroll}
-                              >
-                                <IoIosDocument size={40} />
-                                Autres documents
-                              </Link>
-                            </h1>
-                          </div>
-                          {/* <div>
+                      <div className=" grid grid-cols-4 mt-4">
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/newsletters"
+                              onClick={() => window.scroll}
+                            >
+                              <FaBlog size={40} />
+                              {t("Newsletters")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/reports"
+                              onClick={() => window.scroll}
+                            >
+                              <BiSolidReport size={40} />
+                              {t("Reports")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/jobopenings"
+                              onClick={() => window.scroll}
+                            >
+                              <MdLocalOffer size={40} />
+                              {t("Jobs")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/othersdoc"
+                              onClick={() => window.scroll}
+                            >
+                              <IoIosDocument size={40} />
+                              {t("Other")}
+                            </Link>
+                          </h1>
+                        </div>
+                        {/* <div>
                             <img
                               src="https://picsum.photos/180"
                               alt="not found"
                             />
                           </div> */}
-                        </div>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -350,68 +339,57 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2">
-                      <h1 className="text-xl font-semibold pb-3  ">
-                        Actualités
-                      </h1>
-                      <p className=" text-sm ">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Officia unde voluptatibus possimus obcaecati nisi
-                        temporibus ullam eligendi adipisci. Ea, consectetur.
-                        Sequi, eligendi doloribus, consequuntur, molestias vel
-                        delectus quo consequatur aut magni natus esse sapiente
-                        eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className="grid grid-cols-5 mt-5">
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link to="" onClick={() => window.scroll(0, 0)}>
-                                <PiNewspaperClippingFill size={40} />
-                                Presse
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/videos"
-                                onClick={() => window.scroll}
-                              >
-                                <CiVideoOn size={40} />
-                                Nos vidéos
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/podcast"
-                                onClick={() => window.scroll}
-                              >
-                                <FaPodcast size={40} />
-                                Podcast
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link
-                                to="/data-loading/blogs"
-                                onClick={() => window.scroll}
-                              >
-                                <FaBlog size={40} />
-                                Blog
-                              </Link>
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
-                              <Link to="" onClick={() => window.scroll(0, 0)}>
-                                <BsCalendar2Event size={40} />
-                                Evenements
-                              </Link>
-                            </h1>
-                          </div>
+                      <div className="grid grid-cols-5 mt-5">
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link to="" onClick={() => window.scroll(0, 0)}>
+                              <PiNewspaperClippingFill size={40} />
+                              {t("Press")}
+                            </Link>
+                          </h1>
                         </div>
-                      </p>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/videos"
+                              onClick={() => window.scroll}
+                            >
+                              <CiVideoOn size={40} />
+                              {t("Videos")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/podcast"
+                              onClick={() => window.scroll}
+                            >
+                              <FaPodcast size={40} />
+                              {t("Podcast")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link
+                              to="/data-loading/blogs"
+                              onClick={() => window.scroll}
+                            >
+                              <FaBlog size={40} />
+                              {t("Blog")}
+                            </Link>
+                          </h1>
+                        </div>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
+                            <Link to="" onClick={() => window.scroll(0, 0)}>
+                              <BsCalendar2Event size={40} />
+                              {t("Events")}
+                            </Link>
+                          </h1>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -441,29 +419,20 @@ function Navbar() {
                       />
                     </div>
                     <div className="col-span-2 ">
-                      <h1 className="text-xl font-semibold pb-3 ">Projet</h1>
-                      <p className=" text-sm ">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Officia unde voluptatibus possimus obcaecati nisi
-                        temporibus ullam eligendi adipisci. Ea, consectetur.
-                        Sequi, eligendi doloribus, consequuntur, molestias vel
-                        delectus quo consequatur aut magni natus esse sapiente
-                        eum necessitatibus repellendus nisi veritatis saepe.
-                        <div className=" grid grid-cols-3 mt-4">
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                              <GoProject size={40} className="" />
-                              Projet encours
-                            </h1>
-                          </div>
-                          <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                              <GoProject size={40} className="" /> Projets
-                              écoulés
-                            </h1>
-                          </div>
+                      <div className=" grid grid-cols-3 mt-4">
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
+                            <GoProject size={40} className="" />
+                            {t("Ongoing")}
+                          </h1>
                         </div>
-                      </p>
+                        <div>
+                          <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
+                            <GoProject size={40} className="" />
+                            {t("Completed")}
+                          </h1>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

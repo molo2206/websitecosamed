@@ -1,10 +1,10 @@
 import useAsync from "../../hooks/useAsync";
-import BlogServices from "../../services/BlogsServices";
+import BulletinServices from "../../services/BulletinServices";
 import BulletinLoad from "./BulletinLoad";
 import BulletinCard from "./BulletinCard";
 
 const Bulletin = () => {
-  const { data, loading } = useAsync(() => BlogServices.getBlog());
+  const { data, loading } = useAsync(() => BulletinServices.getBulletin());
   return (
     <div className="container dark:bg-slate-900 w-full dark:text-white ">
       <div>
