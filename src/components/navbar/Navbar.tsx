@@ -6,7 +6,6 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import useSticky from "../../hooks/useSticky";
 import Logo from "../../assets/logo1.png";
 import { Link } from "react-router-dom";
-import { GoProject } from "react-icons/go";
 import { MdContactMail } from "react-icons/md";
 import { BiDonateHeart } from "react-icons/bi";
 import { CiMoneyCheck1 } from "react-icons/ci";
@@ -16,9 +15,7 @@ import { CiVideoOn } from "react-icons/ci";
 import { FaPodcast } from "react-icons/fa6";
 import { FaBlog } from "react-icons/fa";
 import { BsCalendar2Event } from "react-icons/bs";
-import { BiSolidReport } from "react-icons/bi";
-import { MdLocalOffer } from "react-icons/md";
-import { IoIosDocument } from "react-icons/io";
+
 import { useTranslation } from "react-i18next";
 import { useAuthContext } from "../../context";
 
@@ -88,14 +85,7 @@ function Navbar() {
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-4 gap-5 ">
-                    <div className=" overflow-hidden py-8">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="not found"
-                        className="max-h-[500px] w-full rounded-b-3xl object-fill"
-                      />
-                    </div>
+                  <div className="grid grid-cols-2 gap-5 ">
                     <div className="col-span-2">
                       <p className=" text-sm">
                         <div className=" grid grid-cols-4 mt-6">
@@ -251,22 +241,14 @@ function Navbar() {
                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-4 gap-5 ">
-                    <div className=" overflow-hidden">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="not found"
-                        className="max-h-[300px] w-full rounded-b-3xl object-fill"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <div className=" grid grid-cols-4 mt-4">
+                    <div className="col-span-4">
+                      <div className=" grid grid-cols-4 mt-6">
                         <div>
                           <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
                             <Link
                               to="/data-loading/newsletters"
                               onClick={() => window.scroll}
                             >
-                              <FaBlog size={40} />
                               {t("Newsletters")}
                             </Link>
                           </h1>
@@ -277,7 +259,6 @@ function Navbar() {
                               to="/data-loading/reports"
                               onClick={() => window.scroll}
                             >
-                              <BiSolidReport size={40} />
                               {t("Reports")}
                             </Link>
                           </h1>
@@ -288,7 +269,6 @@ function Navbar() {
                               to="/data-loading/jobopenings"
                               onClick={() => window.scroll}
                             >
-                              <MdLocalOffer size={40} />
                               {t("Jobs")}
                             </Link>
                           </h1>
@@ -299,17 +279,10 @@ function Navbar() {
                               to="/data-loading/othersdoc"
                               onClick={() => window.scroll}
                             >
-                              <IoIosDocument size={40} />
                               {t("Other")}
                             </Link>
                           </h1>
                         </div>
-                        {/* <div>
-                            <img
-                              src="https://picsum.photos/180"
-                              alt="not found"
-                            />
-                          </div> */}
                       </div>
                     </div>
                   </div>
@@ -331,19 +304,12 @@ function Navbar() {
                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-4 gap-5 ">
-                    <div className=" overflow-hidden">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="not found"
-                        className="max-h-[300px] w-full rounded-b-3xl object-fill"
-                      />
-                    </div>
-                    <div className="col-span-2">
-                      <div className="grid grid-cols-5 mt-5">
+                    <div className="col-span-4">
+                      <div className="grid grid-cols-5 mt-6">
                         <div>
                           <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
                             <Link to="" onClick={() => window.scroll(0, 0)}>
-                              <PiNewspaperClippingFill size={40} />
+                              <PiNewspaperClippingFill size={25} />
                               {t("Press")}
                             </Link>
                           </h1>
@@ -354,7 +320,7 @@ function Navbar() {
                               to="/data-loading/videos"
                               onClick={() => window.scroll}
                             >
-                              <CiVideoOn size={40} />
+                              <CiVideoOn size={25} />
                               {t("Videos")}
                             </Link>
                           </h1>
@@ -365,7 +331,7 @@ function Navbar() {
                               to="/data-loading/podcast"
                               onClick={() => window.scroll}
                             >
-                              <FaPodcast size={40} />
+                              <FaPodcast size={25} />
                               {t("Podcast")}
                             </Link>
                           </h1>
@@ -376,7 +342,7 @@ function Navbar() {
                               to="/data-loading/blogs"
                               onClick={() => window.scroll}
                             >
-                              <FaBlog size={40} />
+                              <FaBlog size={25} />
                               {t("Blog")}
                             </Link>
                           </h1>
@@ -384,7 +350,7 @@ function Navbar() {
                         <div>
                           <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
                             <Link to="" onClick={() => window.scroll(0, 0)}>
-                              <BsCalendar2Event size={40} />
+                              <BsCalendar2Event size={25} />
                               {t("Events")}
                             </Link>
                           </h1>
@@ -394,50 +360,6 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className=" group cursor-pointer">
-                <a href="#" className="flex items-center gap-[2px] h-[72px] ">
-                  {t("Ouractions")}
-                  <span>
-                    <FaCaretDown
-                      className=" transition-all 
-                        duration-200 group-hover:rotate-180"
-                    />
-                  </span>
-                </a>
-                {/* dropdown full width section */}
-                <div
-                  className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl
-                  bg-white text-black 
-                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
-                >
-                  <div className="grid grid-cols-3 gap-5">
-                    <div className=" overflow-hidden">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="not found"
-                        className="max-h-[300px] w-full rounded-b-3xl object-fill"
-                      />
-                    </div>
-                    <div className="col-span-2 ">
-                      <div className=" grid grid-cols-3 mt-4">
-                        <div>
-                          <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                            <GoProject size={40} className="" />
-                            {t("Ongoing")}
-                          </h1>
-                        </div>
-                        <div>
-                          <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                            <GoProject size={40} className="" />
-                            {t("Completed")}
-                          </h1>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
               <li className=" group cursor-pointer">
                 <a href="#" className="flex items-center gap-[2px] h-[72px] ">
                   {t("AboutUs")}
@@ -455,22 +377,8 @@ function Navbar() {
                   dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-3 gap-5">
-                    <div className=" overflow-hidden">
-                      <img
-                        src="https://picsum.photos/200"
-                        alt="not found"
-                        className="max-h-[300px] w-full rounded-b-3xl object-fill"
-                      />
-                    </div>
-                    <div className="col-span-2 ">
-                      <h1 className="text-xl font-semibold pb-3 ">À propos</h1>
+                    <div className="col-span-4 ">
                       <p className=" text-sm ">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Officia unde voluptatibus possimus obcaecati nisi
-                        temporibus ullam eligendi adipisci. Ea, consectetur.
-                        Sequi, eligendi doloribus, consequuntur, molestias vel
-                        delectus quo consequatur aut magni natus esse sapiente
-                        eum necessitatibus repellendus nisi veritatis saepe.
                         <div className=" grid grid-cols-4 mt-4 ">
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold cursor-pointer ">
@@ -478,32 +386,32 @@ function Navbar() {
                                 to="/contact"
                                 onClick={() => window.scrollTo(0, 0)}
                               >
-                                <MdContactMail size={40} />
-                                Contactez-nous
+                                <MdContactMail size={25} />
+                                {t('Contact')}
                               </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
-                                <BiDonateHeart size={40} />
-                                Partenariats
+                                <BiDonateHeart size={25} />
+                                {t('Partnerships')}
                               </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
-                                <CiMoneyCheck1 size={40} />
-                                Financement
+                                <CiMoneyCheck1 size={25} />
+                                {t('Funding')}
                               </Link>
                             </h1>
                           </div>
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
-                                <MdManageAccounts size={40} />
-                                Gouvernance
+                                <MdManageAccounts size={25} />
+                                {t('Governance')}
                               </Link>
                             </h1>
                           </div>
@@ -516,7 +424,7 @@ function Navbar() {
               <li>
                 <Link to="/community/donate" onClick={() => window.scroll}>
                   <button
-                    className="h-[40px] w-[180px] rounded-lg 
+                    className="h-[25px] w-[180px] rounded-lg 
                               bg-white text-principal font-semibold text-center"
                   >
                     {t("Donate")}

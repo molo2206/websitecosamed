@@ -4,7 +4,7 @@ const BlogServices = {
 		return requests.get(`/public/blogs`)
 	},
 	oneBlog: async (id: any) => {
-		return requests.get(`/blogs/${id}`)
+		return requests.get(`/public/blogs/detail/${id}`)
 	},
 }
 export default BlogServices

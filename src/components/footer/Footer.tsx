@@ -1,5 +1,6 @@
-import {useState} from "react";
+import { useState } from "react";
 import Logo from "../../assets/logo1.png";
+import { useTranslation } from "react-i18next";
 import {
   FaFacebook,
   FaInstagram,
@@ -11,6 +12,7 @@ import FooterLinks from "./FooterLinks";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { t } = useTranslation();
   function getDate() {
     const today = new Date();
     const year = today.getFullYear();
@@ -82,7 +84,7 @@ const Footer = () => {
             <div className=" grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2">
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
-                  Qui sommes nous
+                  {t("Who_are_we")}
                 </h1>
                 <ul className=" flex flex-col gap-3">
                   <FooterLinks links={importantLinks} />
@@ -90,7 +92,7 @@ const Footer = () => {
               </div>
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
-                  Où nous trouver
+                  {t("Where_to_find_us")}
                 </h1>
                 <ul className=" flex flex-col gap-3">
                   <FooterLinks links={Links} />
@@ -99,10 +101,10 @@ const Footer = () => {
 
               <div className="px-4 py-8">
                 <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
-                  Réseaux sociaux
+                  {t("Social")}
                 </h1>
                 <div className=" flex flex-col gap-3">
-                  <h1>Subscribe to out newsletter</h1>
+                  <h1>{t("Suscribe")}</h1>
                   {/* <input
                     type="text"
                     placeholder="Enter your email"
@@ -125,7 +127,7 @@ const Footer = () => {
                    duration-200 hover:scale-105 text-principal"
                   >
                     <Link to="/community/join" onClick={() => window.scroll}>
-                      Rejoindre la Communauté
+                      {t('donate')}
                     </Link>
                   </button>
                 </div>

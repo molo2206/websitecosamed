@@ -29,6 +29,7 @@
     "react-ionicons": "^4.2.1",
     "react-ions": "^5.4.1",
     "react-loading-skeleton": "^3.4.0",
+    "react-render-html": "^0.6.0",
     "react-router-dom": "^6.23.0",
     "react-toast-notifications": "^2.5.1",
     "react-toastify": "^10.0.5",

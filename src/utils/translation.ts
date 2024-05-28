@@ -30,7 +30,25 @@ export const En = {
 	Events: "Events",
 	Ongoing: "Ongoing project",
 	Completed: "Project already completed",
-	Contact: "Contact us"
+	Contact: "Contact us",
+	Funding: "Funding",
+	Governance: "Governance",
+	Partnerships: "Partnerships",
+
+	get_in_touch: "GET IN TOUCH",
+	Who_are_we: "Who are we",
+	Where_to_find_us: "Where to find us",
+	Social: "Social networks",
+	Suscribe: "Subscribe to out newsletter",
+	Join: "Join the Community",
+	Privacy_Policy: "Privacy Policy",
+	Share_on: "Share on",
+	Stay_inform: "Stay informed of our actions",
+	clicking_continue: "By clicking Continue, you agree to our",
+	make_donation:"I make a donation to the organization",
+	donate:"Donate",
+	Enter_email: "Enter your e-mail",
+	Becom_member: "Becom member"
 }
 
 export const FR = {
@@ -65,5 +83,22 @@ export const FR = {
 	Events: "Evénements",
 	Ongoing: "Projet en cours",
 	Completed: "Projet déjà terminé",
-	Contact: "Contact-nous"
+	Contact: "Contact-nous",
+	Funding: "Financement",
+	Governance: "Gouvernance",
+	Partnerships: "Partenariats",
+	get_in_touch: "ENTRER EN CONTACT",
+	Who_are_we: "Qui sommes nous",
+	Where_to_find_us: "Où nous trouver",
+	Social: "Réseaux sociaux",
+	Suscribe: "Abonnez-vous à notre newsletter",
+	Join: "Rejoignez la communauté",
+	Privacy_Policy: "Politique de confidentialité",
+	Share_on: "Partager sur",
+	Stay_inform: "Restez informé de nos actions",
+	clicking_continue: "En cliquant sur Continuer, vous acceptez notre",
+	make_donation: "Je fais un don pour l'organisation",
+	donate:"Faire un don",
+	Enter_email: "Entrez votre email",
+	Becom_member: "Devenir membre",
 }
