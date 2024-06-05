@@ -1,6 +1,8 @@
-import React from 'react'
+interface props{
+  img?:any;
+}
 
-const SimpleBannerBulletin = (img) => {
+const SimpleBannerBulletin = ({img}:props) => {
   return (
     <>
       <div className=" bg-principal ">

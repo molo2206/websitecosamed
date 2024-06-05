@@ -1,6 +1,7 @@
-import React from 'react'
-
-const SimpleBannerVideo = ({video}) => {
+interface props {
+  video?: any;
+}
+const SimpleBannerVideo = ({ video }: props) => {
   return (
     <>
       <div className=" bg-principal">
@@ -11,7 +12,6 @@ const SimpleBannerVideo = ({video}) => {
                 className="aspect-video w-full"
                 src={video}
                 title="Youtube video player"
-                frameborder="0"
                 allow="accelerometer: autoplay; clipboard-write;encrypted-media;
           gyroscope;picture-in-picture;web-share"
                 allowFullScreen
@@ -38,7 +38,7 @@ const SimpleBannerVideo = ({video}) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SimpleBannerVideo
+export default SimpleBannerVideo;

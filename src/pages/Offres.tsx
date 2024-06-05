@@ -1,8 +1,4 @@
 import Img1 from "../assets/blogs/j1.jpg";
-import Img2 from "../assets/blogs/j2.jpg";
-import Img3 from "../assets/blogs/j6.jpeg";
-import Img4 from "../assets/blogs/j4.jpeg";
-import BulletinCard from "../components/blogs/BulletinCard";
 import SimpleBannerBulletin from "../components/simpleBanner/SimpleBannerBulletin";
 const Offres = () => {
   return (
@@ -14,10 +10,10 @@ const Offres = () => {
             Outstanding job openings
           </h1>
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <BulletinCard Img={Img1} />
+            {/* <BulletinCard Img={Img1} />
             <BulletinCard Img={Img2} />
             <BulletinCard Img={Img3} />
-            <BulletinCard Img={Img4} />
+            <BulletinCard Img={Img4} /> */}
           </div>
         </section>
       </div>

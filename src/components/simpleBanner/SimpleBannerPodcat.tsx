@@ -1,5 +1,7 @@
-import Img1 from "../../assets/blogs/img1.jpeg";
-const SimpleBannerPodcat = ({podcast}) => {
+interface props{
+  podcast?:any;
+}
+const SimpleBannerPodcat = ({podcast}:props) => {
   return (
     <>
       <div className=" bg-principal">
@@ -10,7 +12,6 @@ const SimpleBannerPodcat = ({podcast}) => {
                 className="aspect-video w-full"
                 src={podcast}
                 title="Youtube video player"
-                frameborder="0"
                 allow="accelerometer: autoplay; clipboard-write;encrypted-media;
           gyroscope;picture-in-picture;web-share"
                 allowFullScreen

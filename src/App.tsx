@@ -22,6 +22,9 @@ import { ToastContainer } from "react-toastify";
 import ScrollToTop from "./components/navbar/ScrollToTop";
 import DonateTrue from "./pages/DonateTrue";
 import DetailBlog from "./pages/DetailBlog";
+import DetailBulletin from "./pages/DetailBulletin";
+import 'react-toastify/dist/ReactToastify.css';
+import About from "./pages/About";
 
 function App() {
   return (
@@ -42,6 +45,8 @@ function App() {
             <Route path="/community/join" element={<Rejoindre />} />
             <Route path="/community/donate" element={<DonateTrue />} />
             <Route path="/blog/detail/:id" element={<DetailBlog />} />
+            <Route path="/bulletin/detail/:id" element={<DetailBulletin />} />
+            <Route path="/about" element={<About/>}></Route>
             {/* <Route path="/videos" element={<Videos/>}></Route>
             <Route path="/evenement" element={<Evenement/>}></Route>
             <Route path="/galery" element={<Photos/>}></Route>

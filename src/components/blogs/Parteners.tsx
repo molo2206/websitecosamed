@@ -1,21 +1,27 @@
-
+import BlogCard from "./BlogCard";
+import BlogCardLoand from "./BlogCardLoad";
+import useAsync from "../../hooks/useAsync";
+import PartenersServices from "../../services/PartenersServices";
+import { useTranslation } from "react-i18next";
+import PartnerCard from "./PartnerCard";
 const Parteners = () => {
+  const { t } = useTranslation();
+  const { data, loading } = useAsync(() => PartenersServices.getPartners());
   return (
-    <div>
-      <div className=" container dark:bg-slate-400 w-full dark:text-white border-t-2 border-gray-300/50 py-8 text-center">
-        <div className=" py-2 h-[550px]">
-          <h3 className="text-center text-3xl font-bold">
-            Partners and donors
-          </h3>
-          <p className="text-center text-2xl py-2">
-            Constituer une équipe multidisciplinaire disponible et efficace pour
-            l’éducation sanitaire des populations, la recherche sur les
-            problèmes de santé et le rapprochement des soins de santé primaires
-            aux personnes vulnérables, aux plus marginalisées ainsi qu’aux
-            malades chroniques.
-          </p>
+    <div className="container dark:bg-slate-900 w-full dark:text-white py-8">
+      <section className="mb-10 ">
+        {/* <SimpleBannerBlog img={Img1} /> */}
+        <h1 className=" mb-8 border-l-8 py-2 pl-2 text-left text-3xl font-bold">
+          {t("Partners")}
+        </h1>
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {loading
+            ? Array.from(Array(20).keys()).map(() => <BlogCardLoand />)
+            : data.map((item: any, index: number) => (
+                <PartnerCard partners={item} key={index} />
+              ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

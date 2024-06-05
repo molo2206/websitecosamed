@@ -10,7 +10,6 @@ interface props {
 }
 const Input = ({
   label,
-  placeholder,
   type,
   onChange,
   required,

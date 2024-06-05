@@ -1,51 +1,51 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
 const Rejoindre = () => {
-  const formArray = [1, 2, 3];
-  const [formNo, setFormNo] = useState(formArray[0]);
-  const [state, setState] = useState({
-    name: "",
-    dept: "",
-    batch: "",
-    varsity: "",
-    session: "",
-    address: "",
-    district: "",
-    thana: "",
-    post: "",
-  });
-  const inputHandle = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const next = () => {
-    if (formNo === 1 && state.name && state.dept && state.batch) {
-      setFormNo(formNo + 1);
-    } else if (
-      formNo === 2 &&
-      state.varsity &&
-      state.session &&
-      state.address
-    ) {
-      setFormNo(formNo + 1);
-    } else {
-      toast.error("Please fillup all input fields");
-    }
-  };
-  const pre = () => {
-    setFormNo(formNo - 1);
-  };
-  const finalSubmit = () => {
-    if (state.district && state.post && state.thana) {
-      console.log(state);
-    } else {
-      toast.error("Please fillup all input fields");
-    }
-  };
+  // const formArray = [1, 2, 3];
+  // const [formNo, setFormNo] = useState(formArray[0]);
+  // const [state, setState] = useState({
+  //   name: "",
+  //   dept: "",
+  //   batch: "",
+  //   varsity: "",
+  //   session: "",
+  //   address: "",
+  //   district: "",
+  //   thana: "",
+  //   post: "",
+  // });
+  // const inputHandle = (e) => {
+  //   setState({
+  //     ...state,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+  // const next = () => {
+  //   if (formNo === 1 && state.name && state.dept && state.batch) {
+  //     setFormNo(formNo + 1);
+  //   } else if (
+  //     formNo === 2 &&
+  //     state.varsity &&
+  //     state.session &&
+  //     state.address
+  //   ) {
+  //     setFormNo(formNo + 1);
+  //   } else {
+  //     toast.error("Please fillup all input fields");
+  //   }
+  // };
+  // const pre = () => {
+  //   setFormNo(formNo - 1);
+  // };
+  // const finalSubmit = () => {
+  //   if (state.district && state.post && state.thana) {
+  //     console.log(state);
+  //   } else {
+  //     toast.error("Please fillup all input fields");
+  //   }
+  // };
   return (
     <div className="">
       <div className="container px-4 h-[1000px] flex">

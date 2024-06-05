@@ -1,4 +1,4 @@
-import PodcastCard from "../components/blogs/PodcastCard";
+
 import SimpleBannerPodcat from "../components/simpleBanner/SimpleBannerPodcat";
 const Podcast = () => {
   return (
@@ -11,10 +11,7 @@ const Podcast = () => {
             Our Latest PodCast
           </h1>
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <PodcastCard podcast="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761127386&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" />
-            <PodcastCard podcast="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761127386&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" />
-            <PodcastCard podcast="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761127386&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" />
-            <PodcastCard podcast="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1761127386&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" />
+           
           </div>
         </section>
       </div>

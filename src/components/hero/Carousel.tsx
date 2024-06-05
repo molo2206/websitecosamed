@@ -1,10 +1,10 @@
-import react,{useState} from 'react';
+import {useState} from 'react';
 import Img1 from "../../assets/blogs/img1.jpeg";
 import Img2 from "../../assets/blogs/img2.jpg";
 import Img3 from "../../assets/blogs/img3.jpeg";
 import Img4 from "../../assets/blogs/img4.jpeg";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-import { RxDotFilled } from "react-icons/rx";
+
 
 const Carousel = () => {
   const slides = [
@@ -32,11 +32,7 @@ const Carousel = () => {
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
-
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
-
+  
   return (
     <div className=" max-w-[1400px] h-[700px] w-full m-auto py-16 px-4 relative group">
       <div
@@ -56,7 +52,7 @@ const Carousel = () => {
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
       <div className=" flex top-4  justify-center py-2">
-        {slides.map((slide, slideIndex) => (
+        {/* {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
@@ -64,7 +60,7 @@ const Carousel = () => {
           >
             <RxDotFilled />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );

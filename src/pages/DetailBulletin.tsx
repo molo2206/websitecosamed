@@ -1,67 +1,126 @@
 import { Link, useParams } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
-import BlogServices from "../services/BlogsServices";
+import BulletinServices from "../services/BulletinServices";
 import { showingTranslateValue } from "../utils/heleprs";
 import { useAuthContext } from "../context";
-import { FaFacebook, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import Input from "../components/form/Input";
-import Button from "../components/form/Button";
 import BlogDetailLoad from "../components/blogs/BlogDetailLoad";
-import Blogs from "../components/blogs/Blogs";
+import Bulletin from "../components/blogs/Bulletin";
 
-const DetailBlog = () => {
+const DetailBulletin = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { lang } = useAuthContext();
-  const { data, loading } = useAsync(() => BlogServices.oneBlog(id),id);
+  const { data, loading } = useAsync(
+    () => BulletinServices.oneBulletin(id),
+    id
+  );
+
   return (
     <>
       {loading ? (
         Array.from(Array(20).keys()).map(() => <BlogDetailLoad />)
       ) : (
         <div className="container dark:bg-slate-900 w-full dark:text-white py-1 ">
-          <p className="text-md py-3 font-semibold">
+          <p className="text-md py-3 font-semibold px-4">
             Page d'accueil/blog/detail/
             {showingTranslateValue(data?.translations, lang)?.title}
           </p>
           <p className="text-sm py-3">
-            <p className=" font-semibold text-lg text-principal ">
+            <p className=" font-semibold text-lg text-principal dark:text-white">
               {showingTranslateValue(data?.category?.translations, lang)?.name}
             </p>
           </p>
-          <div className="overflow-hidden">
+          <div className="md:grid lg:grid grid-cols-3 gap-2 px-4 overflow-hidden">
             <img
               src={data.image}
               alt=""
-              className="mx-auto w-full 
-            object-cover transition duration-700 "
+              className="mx-auto h-[550px] w-full 
+             object-contain transition duration-700"
             />
-          </div>
-          <div className=" py-2">
-            <p
-              className="  font-montserrat text-lg"
-              dangerouslySetInnerHTML={{
-                __html: showingTranslateValue(data?.translations, lang)
-                  ?.documentation,
-              }}
-            ></p>
-            <div className="  pb-14 py-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 row">
-                <div className="col-span-2 col-lg-8 col-md-8 px-4">
-                  <h1 className=" text-2xl font-semibold mb-10">
-                    {showingTranslateValue(data?.translations, lang)?.title}
-                  </h1>
-                  <div
-                    className="text-lg font-montserrat"
-                    dangerouslySetInnerHTML={{
-                      __html: showingTranslateValue(data?.translations, lang)
-                        ?.description,
-                    }}
-                  ></div>
-                </div>
-                <div className="col-span-1 md:col-lg-4 col-md-4 gap-3 px-4 py-8">
-                  <div className="px-4 py-8  bg-principal ">
+            <div className=" col-span-2 py-2">
+              <h3 className="font-montserrat text-lg">
+                Cliquez sur le bouton ci-dessous pour télécharger le bulletin
+              </h3>
+              <a
+                target="_blank"
+                className="py-2 text-lg rounded-md w-full text-white
+               bg-principal px-3"
+                href={data?.file}
+              >
+                Download PDF
+              </a>
+
+              <p
+                className="  font-montserrat text-lg"
+                dangerouslySetInnerHTML={{
+                  __html: showingTranslateValue(data?.translations, lang)
+                    ?.documentation,
+                }}
+              ></p>
+              <div className="  pb-14 py-8">
+                <div className="row">
+                  <div className="col-span-2 col-lg-8 col-md-8 px-4">
+                    <h1 className=" text-2xl font-semibold mb-10">
+                      {showingTranslateValue(data?.translations, lang)?.title}
+                    </h1>
+                    <div
+                      className="text-lg font-montserrat"
+                      dangerouslySetInnerHTML={{
+                        __html: showingTranslateValue(data?.translations, lang)
+                          ?.description,
+                      }}
+                    ></div>
+                    <div className="py-2 flex items-center justify-center  ">
+                      <img
+                        src={data?.author?.image}
+                        className=" h-[70px] px-30 rounded-full duration-200 hover:scale-105"
+                      />
+                    </div>
+                    <div className=" flex items-center justify-center">
+                      <p className="text-xl font-bold ">
+                        {data?.author?.full_name}
+                      </p>
+                    </div>
+                    <div className=" flex items-center justify-center">
+                      <p className="text-xl font-bold ">
+                        {data?.author?.fonction}
+                      </p>
+                    </div>
+                    <div className=" flex items-center justify-center py-2 ">
+                      <div className="flex gap-3 mr-6 items-center">
+                        <a
+                          href={data?.author?.instagram}
+                          className=" duration-200 hover:scale-105"
+                        >
+                          <FaInstagram className=" text-3xl" />
+                        </a>
+                        <a
+                          href={data?.author?.facebook}
+                          className=" duration-200 hover:scale-105"
+                        >
+                          <FaFacebook className=" text-3xl" />
+                        </a>
+                        <a
+                          href={data?.author?.linkedin}
+                          className=" duration-200 hover:scale-105"
+                        >
+                          <FaLinkedinIn className=" text-3xl" />
+                        </a>
+                        <a href={data?.author?.twitter} className="">
+                          <FaTwitter className=" text-3xl" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {/* <div className="col-span-1 md:col-lg-4 col-md-4 gap-3 px-4 py-8">
+                  <div className="px-4 py-8  bg-principal text-white ">
                     <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
                       {t("Share_on")}
                     </h1>
@@ -133,16 +192,18 @@ const DetailBlog = () => {
                       </a>
                     </div>
                   </div>
+                </div> */}
                 </div>
               </div>
             </div>
           </div>
+
           <p className=" border-t-2 border-gray-300/50 py-4 text-center"></p>
-          <Blogs />
+          <Bulletin />
         </div>
       )}
     </>
   );
 };
 
-export default DetailBlog;
+export default DetailBulletin;

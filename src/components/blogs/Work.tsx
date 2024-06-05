@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 const Work = () => {
+  const notify = () => toast("En cours de développement");
+  const { t } = useTranslation();
   return (
-    <div>
-      <div className=" container dark:bg-slate-400 w-full dark:text-white border-t-2 border-gray-300/50 py-8 text-center">
-        <div className=" py-2 h-[150px]">
-          <h3 className="text-center text-3xl font-bold">
-            Le travail de COSAMED
-          </h3>
-          <p className="text-center text-2xl py-2">
+    <section className=" bg-slate-100  dark:bg-slate-900 dark:text-white">
+      <div className=" container flex flex-col items-center justify-center py-2 md:h-[500px]">
+        <div className={"order-1"}>
+          <h1 className="text-2xl md:text-4xl  p-4 ">{t('OurWork')}</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-200 font-montserrat mx-auto w-full p-4  ">
             Constituer une équipe multidisciplinaire disponible et efficace pour
             l’éducation sanitaire des populations, la recherche sur les
             problèmes de santé et le rapprochement des soins de santé primaires
@@ -17,19 +18,7 @@ const Work = () => {
           </p>
         </div>
       </div>
-      <div className=" container dark:bg-slate-900 w-full dark:text-white  border-gray-300/50 py-6 text-center">
-        <div className="py-36 h-[150px]">
-          <Link to="" onClick={() => window.scroll} className="">
-            <button
-              className="h-[60px] w-[280px] rounded-lg font-semibold
-                              bg-principal text-white"
-            >
-              DECROUVREZ NOTRE TRAVAIL
-            </button>
-          </Link>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

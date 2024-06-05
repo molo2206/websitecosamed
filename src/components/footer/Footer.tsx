@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Logo from "../../assets/logo1.png";
 import { useTranslation } from "react-i18next";
+import useAsync from "../../hooks/useAsync";
+import SettingsServices from "../../services/SettingsServices";
+import { showingTranslateValue } from "../../utils/heleprs";
 import {
   FaFacebook,
   FaInstagram,
@@ -10,15 +13,19 @@ import {
 } from "react-icons/fa";
 import FooterLinks from "./FooterLinks";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../context/useAuthContext";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { lang } = useAuthContext();
+  const { data } = useAsync(() => SettingsServices.getSettings());
+
   function getDate() {
     const today = new Date();
     const year = today.getFullYear();
     return `${year}`;
   }
-  const [currentDate, setCurrentDate] = useState(getDate());
+  const [currentDate] = useState(getDate());
 
   const importantLinks = [
     {
@@ -64,12 +71,9 @@ const Footer = () => {
           {/* Footer Contain section */}
           <div className="grid py-2 md:grid-cols-3 header__sticky font-montserrat">
             <div className="px-2 py-4">
-              <p className="font-montserrat text-xl">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos
-                eum alias cumque minima modi mollitia, dolor laudantium ratione
-                repellendus quod impedit possimus maxime facere aspernatur fugit
-                suscipit inventore libero harum in quibusdam veritatis ad qui
-                perspiciatis velit. Odit, aspernatur accus amus? {""}
+              <p className="font-montserrat text-xl" dangerouslySetInnerHTML={{__html:showingTranslateValue(data?.translations, lang)
+                    ?.about_us,}}>
+                
               </p>
               <br />
               <div className=" flex items-center gap-3">
@@ -78,7 +82,7 @@ const Footer = () => {
               </div>
               <div className=" flex items-center gap-3 mt-3">
                 <FaMobileAlt />
-                <p>+42 346 767 3837</p>
+                <p>{data?.phones}</p>
               </div>
             </div>
             <div className=" grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2">
@@ -127,7 +131,7 @@ const Footer = () => {
                    duration-200 hover:scale-105 text-principal"
                   >
                     <Link to="/community/join" onClick={() => window.scroll}>
-                      {t('donate')}
+                      {t("donate")}
                     </Link>
                   </button>
                 </div>

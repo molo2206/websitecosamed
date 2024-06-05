@@ -1,5 +1,4 @@
-import BlogCard from "./BlogCard";
-import BlogCardLoand from "./BlogCardLoad";
+
 import useAsync from "../../hooks/useAsync";
 import BlogServices from "../../services/BlogsServices";
 import EmergencyLoad from "./EmergencyLoad";
@@ -8,7 +7,7 @@ import EmergencyCard from "./EmergencyCard";
 const Emergency = () => {
   const { data, loading } = useAsync(() => BlogServices.getBlog());
   return (
-    <div className="container dark:bg-slate-900 w-full dark:text-white ">
+    <div className=" dark:bg-slate-900 w-full dark:text-white ">
       <div>
         <section className="mb-10 ">
           {/* <SimpleBannerBlog img={Img1} /> */}
@@ -17,7 +16,7 @@ const Emergency = () => {
           </h1>
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {loading
-              ? Array.from(Array(20).keys()).map((Load: any) => (
+              ? Array.from(Array(20).keys()).map(() => (
                   <EmergencyLoad />
                 ))
               : data.map((item: any, index: number) => (
