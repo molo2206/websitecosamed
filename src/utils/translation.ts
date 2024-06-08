@@ -56,7 +56,11 @@ export const En = {
 	History: "History",
 	News: "News",
 	OurWork: "Our Work",
-	Partners:"Partners",
+	Partners: "Partners",
+	Download: "Download PDF",
+	PressButton: "Click the button below to download the newsletter",
+	Condition: "CONDITION OF MEMBERSHIP WITHIN"
+
 }
 
 export const FR = {
@@ -114,7 +118,10 @@ export const FR = {
 	Mission: "Mission",
 	Vision: "Vision",
 	History: "Historique",
-	News: "Actualités",	
+	News: "Actualités",
 	OurWork: "Notre travail",
-	Partners:"Partenaires"
+	Partners: "Partenaires",
+	Download: "Télécharger le PDF",
+	PressButton: "Cliquez sur le bouton ci-dessous pour télécharger le bulletin",
+	Condition: "CONDITION D’ADHESION AU SEIN DE"
 }

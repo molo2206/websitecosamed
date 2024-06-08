@@ -36,12 +36,11 @@ const SimpleBanner = () => {
                     ?.about_us,
                 }}
               ></p>
-
-              <a href="mailto:cosamed17@gmail.com"  target="_blank"
+              {/* <a href="mailto:cosamed17@gmail.com"  target="_blank"
                 className="py-2 flex items-center justify-center text-lg rounded-md w-52 text-principal
                bg-white ">
                 {t("Contact")}
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

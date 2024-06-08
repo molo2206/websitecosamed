@@ -9,7 +9,7 @@ interface props {
 const BannerLastBlog = ({ reverse }: props) => {
   const { lang } = useAuthContext();
   const { t } = useTranslation();
-  const { data, loading } = useAsync(() => SettingsServices.getSettings());
+  const { data } = useAsync(() => SettingsServices.getSettings());
 
   return (
     <section className=" bg-slate-100 dark:bg-slate-900 dark:text-white">

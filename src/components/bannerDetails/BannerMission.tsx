@@ -11,6 +11,7 @@ const BannerMission = () => {
 
   return (
     <section className=" bg-slate-100  dark:bg-slate-900 dark:text-white py-2">
+      <p className="border-t-2"></p>
       <div className=" container flex flex-col items-center justify-center py-10 md:h-[500px]">
         <div className=" grid grid-cols-1 items-center gap-4 md:grid-cols-2">
           <div className={"order-1"}>

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
 import BulletinServices from "../services/BulletinServices";
 import { showingTranslateValue } from "../utils/heleprs";
@@ -28,25 +28,25 @@ const DetailBulletin = () => {
         Array.from(Array(20).keys()).map(() => <BlogDetailLoad />)
       ) : (
         <div className="container dark:bg-slate-900 w-full dark:text-white py-1 ">
-          <p className="text-md py-3 font-semibold px-4">
+          {/* <p className="text-md py-3 font-semibold px-4">
             Page d'accueil/blog/detail/
             {showingTranslateValue(data?.translations, lang)?.title}
-          </p>
+          </p> */}
           <p className="text-sm py-3">
             <p className=" font-semibold text-lg text-principal dark:text-white">
               {showingTranslateValue(data?.category?.translations, lang)?.name}
             </p>
           </p>
           <div className="md:grid lg:grid grid-cols-3 gap-2 px-4 overflow-hidden">
-            <img
-              src={data.image}
-              alt=""
-              className="mx-auto h-[550px] w-full 
+            <div>
+              <img
+                src={data.image}
+                alt=""
+                className="mx-auto h-[550px] w-full 
              object-contain transition duration-700"
-            />
-            <div className=" col-span-2 py-2">
+              />
               <h3 className="font-montserrat text-lg">
-                Cliquez sur le bouton ci-dessous pour télécharger le bulletin
+                {t('PressButton')}
               </h3>
               <a
                 target="_blank"
@@ -54,9 +54,11 @@ const DetailBulletin = () => {
                bg-principal px-3"
                 href={data?.file}
               >
-                Download PDF
+                {t("Download")}
               </a>
+            </div>
 
+            <div className=" col-span-2 py-4">
               <p
                 className="  font-montserrat text-lg"
                 dangerouslySetInnerHTML={{
@@ -64,59 +66,53 @@ const DetailBulletin = () => {
                     ?.documentation,
                 }}
               ></p>
-              <div className="  pb-14 py-8">
+              <div className="  pb-14">
                 <div className="row">
                   <div className="col-span-2 col-lg-8 col-md-8 px-4">
                     <h1 className=" text-2xl font-semibold mb-10">
                       {showingTranslateValue(data?.translations, lang)?.title}
                     </h1>
                     <div
-                      className="text-lg font-montserrat"
+                      className="text-lg font-montserrat items-left text-left"
                       dangerouslySetInnerHTML={{
                         __html: showingTranslateValue(data?.translations, lang)
                           ?.description,
                       }}
                     ></div>
-                    <div className="py-2 flex items-center justify-center  ">
+                    <h1 className="mb-3 text-justify text-1xl font-bold text-principal sm:text-left sm:text-md">
+                        {t("Share_on")}:
+                      </h1>
+                    <div className="flex gap-3 mr-6 py-1">                     
+                      <a
+                        href={data?.author?.instagram}
+                        className=" duration-200 hover:scale-105"
+                      >
+                        <FaInstagram className=" text-3xl" />
+                      </a>
+                      <a
+                        href={data?.author?.facebook}
+                        className=" duration-200 hover:scale-105"
+                      >
+                        <FaFacebook className=" text-3xl" />
+                      </a>
+                      <a
+                        href={data?.author?.linkedin}
+                        className=" duration-200 hover:scale-105"
+                      >
+                        <FaLinkedinIn className=" text-3xl" />
+                      </a>
+                      <a href={data?.author?.twitter} className="">
+                        <FaTwitter className=" text-3xl" />
+                      </a>
+                    </div>
+                    <div>
                       <img
                         src={data?.author?.image}
                         className=" h-[70px] px-30 rounded-full duration-200 hover:scale-105"
                       />
-                    </div>
-                    <div className=" flex items-center justify-center">
                       <p className="text-xl font-bold ">
                         {data?.author?.full_name}
                       </p>
-                    </div>
-                    <div className=" flex items-center justify-center">
-                      <p className="text-xl font-bold ">
-                        {data?.author?.fonction}
-                      </p>
-                    </div>
-                    <div className=" flex items-center justify-center py-2 ">
-                      <div className="flex gap-3 mr-6 items-center">
-                        <a
-                          href={data?.author?.instagram}
-                          className=" duration-200 hover:scale-105"
-                        >
-                          <FaInstagram className=" text-3xl" />
-                        </a>
-                        <a
-                          href={data?.author?.facebook}
-                          className=" duration-200 hover:scale-105"
-                        >
-                          <FaFacebook className=" text-3xl" />
-                        </a>
-                        <a
-                          href={data?.author?.linkedin}
-                          className=" duration-200 hover:scale-105"
-                        >
-                          <FaLinkedinIn className=" text-3xl" />
-                        </a>
-                        <a href={data?.author?.twitter} className="">
-                          <FaTwitter className=" text-3xl" />
-                        </a>
-                      </div>
                     </div>
                   </div>
                   {/* <div className="col-span-1 md:col-lg-4 col-md-4 gap-3 px-4 py-8">

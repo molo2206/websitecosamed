@@ -7,13 +7,13 @@ const PartnerCard = ({partners}:props) => {
   return (
     <>
       <Link target="_black" to={partners?.url} onClick={() => window.scroll}>
-        <div className="p-1 shadow-lg">
-          <div className="overflow-hidden">
+        <div className="p-1 shadow-2xl">
+          <div className="overflow-hidden py-4">
             <img
               src={partners?.image}
               alt="not found"
               className="mx-auto h-[200px] w-80
-            object-contain transition duration-700 "
+            object-contain transition duration-700 " 
             />
           </div>
           <div className=" flex justify-between py-2 text-slate-600">

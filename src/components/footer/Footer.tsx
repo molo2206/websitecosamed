@@ -140,7 +140,7 @@ const Footer = () => {
           </div>
           {/*    Footer copyright section */}
           <div className=" bottom-footer">
-            <div className="md:inline-flex my-10 md:ml-10 shadow rounded-sm w-full  justify-center">
+            <div className="md:inline-flex my-10 md:ml-10 rounded-sm w-full  justify-center">
               <img
                 src={Logo}
                 alt="Logo"

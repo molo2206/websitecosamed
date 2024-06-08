@@ -1,59 +1,120 @@
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
+import { useTranslation } from "react-i18next";
+import useAsync from "../hooks/useAsync";
+import ThematiquesServices from "../services/ThematiquesServices";
+import CountryService from "../services/CountryServices";
+import useValidation from "../hooks/useValidation";
+import { showingTranslateValue } from "../utils/heleprs";
+import TextArea from "../components/form/TextArea";
+import { useAuthContext } from "../context";
+import Members from '../hooks/Members'
+
 const Rejoindre = () => {
-  // const formArray = [1, 2, 3];
-  // const [formNo, setFormNo] = useState(formArray[0]);
-  // const [state, setState] = useState({
-  //   name: "",
-  //   dept: "",
-  //   batch: "",
-  //   varsity: "",
-  //   session: "",
-  //   address: "",
-  //   district: "",
-  //   thana: "",
-  //   post: "",
-  // });
-  // const inputHandle = (e) => {
-  //   setState({
-  //     ...state,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-  // const next = () => {
-  //   if (formNo === 1 && state.name && state.dept && state.batch) {
-  //     setFormNo(formNo + 1);
-  //   } else if (
-  //     formNo === 2 &&
-  //     state.varsity &&
-  //     state.session &&
-  //     state.address
-  //   ) {
-  //     setFormNo(formNo + 1);
-  //   } else {
-  //     toast.error("Please fillup all input fields");
-  //   }
-  // };
-  // const pre = () => {
-  //   setFormNo(formNo - 1);
-  // };
-  // const finalSubmit = () => {
-  //   if (state.district && state.post && state.thana) {
-  //     console.log(state);
-  //   } else {
-  //     toast.error("Please fillup all input fields");
-  //   }
-  // };
+  const { t } = useTranslation();
+  const { lang } = useAuthContext();
+  const { data } = useAsync(() => ThematiquesServices.getThematiques());
+  const { data: country } = useAsync(() => CountryService.getCountry());
+  const { createMember, loading: loadingForm } = Members()
+  const genres = [
+    {
+      value: "Masculin",
+      label: "Masculin",
+    },
+    {
+      value: "Feminin",
+      label: "Feminin",
+    },
+  ];
+
+  const Type = [
+    {
+      value: "Bailleur",
+      label: "Bailleur",
+    },
+    {
+      value: "Membre actif",
+      label: "Membre actif",
+    },
+    {
+      value: "Autre",
+      label: "Autre",
+    },
+  ];
+  const { inputs, errors, handleOnChange, hanldeError } = useValidation({
+    name: "",
+    prename: "",
+    sexe: "",
+    phone: "",
+    email: "",
+    typemembre: "",
+    thematique: "",
+    image: null,
+    country: "",
+    ville: "",
+    profession: "",
+  });
+  const validation = (e: any) => {
+		e.preventDefault()
+
+		let valide = true
+		if (!inputs.name) {
+			hanldeError('name us is required', 'name')
+			valide = false
+		}
+		if (!inputs.prename) {
+			hanldeError('prename is required', 'prename')
+			valide = false
+		}
+		if (!inputs.sexe) {
+			hanldeError('Sexe date is required', 'sexe')
+			valide = false
+		}
+
+		if (!inputs.phone) {
+			hanldeError('Phone is required', 'Author')
+			valide = false
+		}
+
+		if (!inputs.email) {
+			hanldeError('email is required', 'email')
+			valide = false
+		}
+
+		if (!inputs.typemembre) {
+			hanldeError('typemembre is required', 'typemembre')
+			valide = false
+		}
+		if (!inputs.thematique) {
+			hanldeError('thematique is required', 'thematique')
+			valide = false
+		}
+		if (!inputs.country) {
+			hanldeError('country is required', 'country')
+			valide = false
+		}
+		if (!inputs.ville) {
+			hanldeError('ville is required', 'ville')
+			valide = false
+		}
+		if (!inputs.profession) {
+			hanldeError('profession is required', 'profession')
+			valide = false
+		}
+
+		if (valide) {
+			createMember(inputs)
+		}
+	}
   return (
     <div className="">
       <div className="container px-4 h-[1000px] flex">
         <div className="bg-endeleya pt-8 pb-16 lg:pt-16 lg:pb-24 w-[0%] md:w-[40%] sm-[0%] lg-[40%] md:block sm:hidden hidden">
           <div className="container md:block sm:hidden hidden">
             <div className="">
-              <h2 className="text-center font-montserrat lowercase text-xl sm:text-3xl mb-4 font-bold tracking-tight text-gray-900 dark:text-white">
-                CONDITION D’ADHESION AU SEIN DE COSAMED ASBL
+              <h2 className="text-center font-montserrat  text-xl sm:text-2xl mb-4 font-bold tracking-tight text-gray-900 dark:text-white">
+                {t("Condition")} DE COSAMED ASBL
               </h2>
               <div>
                 <div className=" mb-8">
@@ -147,60 +208,175 @@ const Rejoindre = () => {
                       </p>
                     </div>
 
-                    <form className="mt-8 space-y-6 mb-8">
+                    <form className="mt-8 space-y-6 mb-8" onSubmit={validation}>
                       <div className="space-y-px rounded-md items-center">
                         <div className="grid grid-cols-1 gap-4">
                           <Input
-                            type={"select"}
-                            options={Array.from(Array(10).keys()).map(
-                              (i: any) => ({ value: i, label: i })
-                            )}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                            label="Select Thematique"
+                            type="select"
+                            errors={errors.title}
+                            value={inputs.thematique}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "thematique")
+                            }
+                            options={data?.map((item: any) => ({
+                              label: showingTranslateValue(
+                                item?.translations,
+                                lang
+                              )?.value,
+                              value: item.id,
+                            }))}
+                            placeholder={"Entrez votre thematique"}
                           />
                           <Input
-                            type={"select"}
-                            options={Array.from(Array(10).keys()).map(
-                              (i: any) => ({ value: i, label: i })
-                            )}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                            label="Select Type membre"
+                            type="select"
+                            errors={errors.title}
+                            value={inputs.typemembre}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "typemembre")
+                            }
+                            options={Type?.map((item: any) => ({
+                              label: item.label,
+                              value: item.value,
+                            }))}
+                            placeholder={"Selectionner un type"}
                           />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                           <Input
-                            type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                            name="name"
+                            label="name"
+                            placeholder=""
+                            type="text"
+                            errors={errors.title}
+                            value={inputs.name}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "name")
+                            }
+                          />
+                          <Input
+                            name="prename"
+                            label="Prename"
+                            placeholder=""
+                            type="text"
+                            errors={errors.prename}
+                            value={inputs.prename}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "prename")
+                            }
+                          />
+                          <Input
+                            name="select"
+                            label="Select Sexe"
+                            type="select"
+                            value={inputs.sexe}
+                            errors={errors.sexe}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "sexe")
+                            }
+                            options={genres?.map((item: any) => ({
+                              label: item.label,
+                              value: item.value,
+                            }))}
+                            placeholder={"Selectionner un genre"}
+                          />
+                          <Input
+                            name="phone"
+                            label="Téléphone"
+                            type="phone"
+                            errors={errors.phone}
+                            value={inputs.phone}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "phone")
+                            }
+                          />
+                          <Input
+                            name="email"
+                            label="Email"
+                            placeholder=""
+                            type="email"
+                            errors={errors.email}
+                            value={inputs.email}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "email")
+                            }
+                          />
+                          <Input
+                            name="select"
+                            label="Select Pays"
+                            type="select"
+                            value={inputs.country}
+                            errors={errors.country}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "country")
+                            }
+                            options={country?.map((item: any) => ({
+                              label: item.name,
+                              value: item.name,
+                            }))}
+                            placeholder={"Selectionner votre pays"}
+                          />
+                          <Input
+                            name="ville"
+                            label="Ville"
+                            type="text"
+                            errors={errors.ville}
+                            value={inputs.ville}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "ville")
+                            }
                           />
                           <Input
                             type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                            name="profession"
+                            label="profession"
+                            placeholder=""
+                            errors={errors.profession}
+                            value={inputs.profession}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "profession")
+                            }
+                          />
+                          <Input
+                            name="num_ordre"
+                            label="Numèro d'ordre(Facultatif)"
+                            placeholder=""
+                            type="text"
+                            errors={errors.num_ordre}
+                            value={inputs.num_ordre}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "num_ordre")
+                            }
                           />
                           <Input
                             type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                            name="corporation"
+                            label="corporation(Facultatif)"
+                            placeholder=""
+                            errors={errors.corporation}
+                            value={inputs.corporation}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "corporation")
+                            }
                           />
-                          <Input
-                            type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
-                          />
-                          <Input
-                            type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
-                          />
-                          <Input
-                            type={"text"}
-                            label={"Nom"}
-                            placeholder={"Entrez votre nom"}
+                        </div>
+                        <div className="grid grid-cols-1 gap-4">
+                          <TextArea
+                            name="title"
+                            placeholder=""
+                            type="text"
+                            value={inputs.motif}
+                            onChange={(e: any) =>
+                              handleOnChange(e.target.value, "motif")
+                            }
+                            label={
+                              "Quelle est la motivation derrière votre adhésion?"
+                            }
                           />
                         </div>
                       </div>
-                      <Button loading={false} label={"Devenir membre"} />
+                      <Button loading={loadingForm} label={"Soumettre"} />
                       <div className="justify-center items-center">
                         <div className="mb-2">
                           <p className="text-sm font-montserrat text-slate-700 dark:text-slate-600 text-justify">

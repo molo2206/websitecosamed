@@ -14,13 +14,13 @@ const BulletinCard = ({ bulletin }: props) => {
         to={`/bulletin/detail/` + bulletin?.id}
         onClick={() => window.scroll}
       >
-        <div className="p-4 shadow-lg">
+        <div className="p-4 shadow-lg py-2">
           <div className=" overflow-hidden">
             <img
               src={bulletin?.image}
               alt="not found"
               className="mx-auto h-[250px] w-full 
-          object-contain transition duration-700 hover:skew-x-2 hover:scale-110"
+          object-cover transition duration-700 hover:skew-x-2 hover:scale-110"
             />
           </div>
           <div className=" flex justify-between py-2 text-slate-600">

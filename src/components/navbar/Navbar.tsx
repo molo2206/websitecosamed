@@ -6,7 +6,7 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import useSticky from "../../hooks/useSticky";
 import Logo from "../../assets/logo1.png";
 import { Link } from "react-router-dom";
-import { MdContactMail } from "react-icons/md";
+import { MdContactMail, MdPerson2 } from "react-icons/md";
 import { BiDonateHeart } from "react-icons/bi";
 import { CiMoneyCheck1 } from "react-icons/ci";
 import { MdManageAccounts } from "react-icons/md";
@@ -15,7 +15,7 @@ import { CiVideoOn } from "react-icons/ci";
 import { FaPodcast } from "react-icons/fa6";
 import { FaBlog } from "react-icons/fa";
 import { BsCalendar2Event } from "react-icons/bs";
-
+import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import { useAuthContext } from "../../context";
 
@@ -85,7 +85,7 @@ function Navbar() {
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-2 gap-5 ">
+                  <div className="grid grid-cols-2 gap-5 px-40 ">
                     <div className="col-span-2">
                       <p className=" text-sm">
                         <div className=" grid grid-cols-4 mt-6">
@@ -240,7 +240,7 @@ function Navbar() {
                   className="absolute left-0 z-[99999] hidden w-full rounded-b-3xl bg-white text-black
                  dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
-                  <div className="grid grid-cols-4 gap-5 ">
+                  <div className="grid grid-cols-4 gap-5 px-40">
                     <div className="col-span-4">
                       <div className=" grid grid-cols-4 mt-6">
                         <div>
@@ -305,7 +305,7 @@ function Navbar() {
                 >
                   <div className="grid grid-cols-4 gap-5 ">
                     <div className="col-span-4">
-                      <div className="grid grid-cols-5 mt-6">
+                      <div className="grid grid-cols-5 mt-6 px-40">
                         <div>
                           <h1 className=" pb-1 hover:text-gray-700 text-principal text-xl font-semibold ">
                             <Link to="" onClick={() => window.scroll(0, 0)}>
@@ -377,9 +377,9 @@ function Navbar() {
                   dark:bg-gray-800 dark:text-white p-2 t ext-black shadow-md group-hover:block"
                 >
                   <div className="grid grid-cols-3 gap-5">
-                    <div className="col-span-4 ">
+                    <div className="col-span-5 ">
                       <p className=" text-sm ">
-                        <div className=" grid grid-cols-4 mt-4 ">
+                        <div className=" grid grid-cols-5 mt-4 px-40">
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold cursor-pointer ">
                               <Link
@@ -387,7 +387,7 @@ function Navbar() {
                                 onClick={() => window.scrollTo(0, 0)}
                               >
                                 <MdContactMail size={25} />
-                                {t('Contact')}
+                                {t("Contact")}
                               </Link>
                             </h1>
                           </div>
@@ -395,7 +395,7 @@ function Navbar() {
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
                                 <BiDonateHeart size={25} />
-                                {t('Partnerships')}
+                                {t("Partnerships")}
                               </Link>
                             </h1>
                           </div>
@@ -403,7 +403,7 @@ function Navbar() {
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
                                 <CiMoneyCheck1 size={25} />
-                                {t('Funding')}
+                                {t("Funding")}
                               </Link>
                             </h1>
                           </div>
@@ -411,7 +411,18 @@ function Navbar() {
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
                               <Link to="" onClick={() => window.scroll(0, 0)}>
                                 <MdManageAccounts size={25} />
-                                {t('Governance')}
+                                {t("Governance")}
+                              </Link>
+                            </h1>
+                          </div>
+                          <div>
+                            <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
+                              <Link
+                                to="/community/join"
+                                onClick={() => window.scroll()}
+                              >
+                                <MdPerson2 size={25} />
+                                {t("Becom_member")}
                               </Link>
                             </h1>
                           </div>
@@ -452,6 +463,14 @@ function Navbar() {
                       onClick={() => handleLanguageChange("fr")}
                       className="p-2  hover:text-principal cursor-pointer"
                     >
+                      <ReactCountryFlag
+                        className="emojiFlag"
+                        countryCode="FR"
+                        svg
+                        cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/"
+                        cdnSuffix="svg"
+                        title="FR"
+                      />
                       Français
                     </li>
                     <li
@@ -459,6 +478,14 @@ function Navbar() {
                       onClick={() => handleLanguageChange("en")}
                       className="p-2  hover:text-principal cursor-pointer"
                     >
+                      <ReactCountryFlag
+                        className="emojiFlag"
+                        countryCode="US"
+                        svg
+                        cdnUrl="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/flags/1x1/"
+                        cdnSuffix="svg"
+                        title="US"
+                      />
                       Anglais
                     </li>
                   </ul>
