@@ -1,3 +1,6 @@
+import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 interface props {
   showMenu?: any;
 }
@@ -14,9 +17,10 @@ const ResponsiveMenu = ({ showMenu }: props) => {
         <nav className="mt-12">
           <ul className="space-y-4 text-xl">
             <li>
-              <a href="" className="">
+              <Link to="/" onClick={() => window.scrollTo}>
+                <FaHome size={18} />
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <a href="" className="">

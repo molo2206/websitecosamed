@@ -4,11 +4,17 @@ import BulletinServices from "../services/BulletinServices";
 import { showingTranslateValue } from "../utils/heleprs";
 import { useAuthContext } from "../context";
 import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
+  FacebookShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  TelegramIcon,
+} from "react-share";
 import { useTranslation } from "react-i18next";
 import BlogDetailLoad from "../components/blogs/BlogDetailLoad";
 import Bulletin from "../components/blogs/Bulletin";
@@ -21,7 +27,8 @@ const DetailBulletin = () => {
     () => BulletinServices.oneBulletin(id),
     id
   );
-
+  const urlShare = "https://www.cosamed.org/blog/detail/";
+  
   return (
     <>
       {loading ? (
@@ -45,9 +52,7 @@ const DetailBulletin = () => {
                 className="mx-auto h-[550px] w-full 
              object-contain transition duration-700"
               />
-              <h3 className="font-montserrat text-lg">
-                {t('PressButton')}
-              </h3>
+              <h3 className="font-montserrat text-lg">{t("PressButton")}</h3>
               <a
                 target="_blank"
                 className="py-2 text-lg rounded-md w-full text-white
@@ -79,31 +84,37 @@ const DetailBulletin = () => {
                           ?.description,
                       }}
                     ></div>
-                    <h1 className="mb-3 text-justify text-1xl font-bold text-principal sm:text-left sm:text-md">
-                        {t("Share_on")}:
+                    <div className="px-4 py-1  rounded-2xl">
+                      <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
+                        {t("Share_on")}
                       </h1>
-                    <div className="flex gap-3 mr-6 py-1">                     
-                      <a
-                        href={data?.author?.instagram}
-                        className=" duration-200 hover:scale-105"
-                      >
-                        <FaInstagram className=" text-3xl" />
-                      </a>
-                      <a
-                        href={data?.author?.facebook}
-                        className=" duration-200 hover:scale-105"
-                      >
-                        <FaFacebook className=" text-3xl" />
-                      </a>
-                      <a
-                        href={data?.author?.linkedin}
-                        className=" duration-200 hover:scale-105"
-                      >
-                        <FaLinkedinIn className=" text-3xl" />
-                      </a>
-                      <a href={data?.author?.twitter} className="">
-                        <FaTwitter className=" text-3xl" />
-                      </a>
+                      <div className=" flex flex-col gap-3 ">
+                        <div className="flex gap-3 mr-6 items-center">
+                          <FacebookShareButton
+                            url={urlShare}
+                            title={
+                              showingTranslateValue(data?.translations, lang)
+                                ?.description
+                            }
+                            className="duration-200 hover:scale-105"
+                            hashtag="#React"
+                          >
+                            <FacebookIcon size={32} round={true} />
+                          </FacebookShareButton>
+                          <WhatsappShareButton url={urlShare + data?.id}>
+                            <WhatsappIcon size={32} round={true} />
+                          </WhatsappShareButton>
+                          <TwitterShareButton url={urlShare + data?.id}>
+                            <TwitterIcon size={32} round={true} />
+                          </TwitterShareButton>
+                          <LinkedinShareButton url={urlShare + data?.id}>
+                            <LinkedinIcon size={32} round={true} />
+                          </LinkedinShareButton>
+                          <TelegramShareButton url={urlShare + data?.id}>
+                            <TelegramIcon size={32} round={true} />
+                          </TelegramShareButton>
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <img

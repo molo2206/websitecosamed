@@ -1,25 +1,32 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAsync from "../hooks/useAsync";
 import BlogServices from "../services/BlogsServices";
 import { showingTranslateValue } from "../utils/heleprs";
 import { useAuthContext } from "../context";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
+
 import { useTranslation } from "react-i18next";
-import Input from "../components/form/Input";
-import Button from "../components/form/Button";
+
 import BlogDetailLoad from "../components/blogs/BlogDetailLoad";
 import Blogs from "../components/blogs/Blogs";
+import {
+  FacebookShareButton,
+  WhatsappShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  TelegramShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  TelegramIcon,
+} from "react-share";
 
 const DetailBlog = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { lang } = useAuthContext();
   const { data, loading } = useAsync(() => BlogServices.oneBlog(id), id);
+  const urlShare = "https://www.cosamed.org/blog/detail/";
   return (
     <>
       {loading ? (
@@ -53,7 +60,6 @@ const DetailBlog = () => {
                     {showingTranslateValue(data?.translations, lang)?.title}
                     <p className="border border-t-2 border-principal"></p>
                   </h1>
-                 
                   <div
                     className="text-lg font-montserrat"
                     dangerouslySetInnerHTML={{
@@ -62,32 +68,44 @@ const DetailBlog = () => {
                     }}
                   ></div>
                   <div className="">
-                  <img
-                        src={data?.author?.image}
-                        className=" h-[70px] px-30 rounded-full duration-200 hover:scale-105"
-                      />
-                      <p className="text-xl font-bold ">
-                        {data?.author?.full_name}
-                      </p>
+                    <img
+                      src={data?.author?.image}
+                      className=" h-[70px] px-30 rounded-full duration-200 hover:scale-105"
+                    />
+                    <p className="text-xl font-bold ">
+                      {data?.author?.full_name}
+                    </p>
                   </div>
-                  <div className="px-4 py-8  bg-principal text-white rounded-2xl">
+
+                  <div className="px-4 py-1  rounded-2xl">
                     <h1 className=" mb-3 text-justify text-1xl font-bold sm:text-left sm:text-2xl">
                       {t("Share_on")}
                     </h1>
                     <div className=" flex flex-col gap-3 ">
                       <div className="flex gap-3 mr-6 items-center">
-                        <a href="" className=" duration-200 hover:scale-105">
-                          <FaInstagram className=" text-3xl" />
-                        </a>
-                        <a href="" className=" duration-200 hover:scale-105">
-                          <FaFacebook className=" text-3xl" />
-                        </a>
-                        <a href="" className=" duration-200 hover:scale-105">
-                          <FaLinkedinIn className=" text-3xl" />
-                        </a>
-                        <a href="" className=" duration-200 hover:scale-105">
-                          <FaTwitter className=" text-3xl" />
-                        </a>
+                        <FacebookShareButton
+                          url={urlShare}
+                          title={
+                            showingTranslateValue(data?.translations, lang)
+                              ?.description
+                          }
+                          className="duration-200 hover:scale-105"
+                          hashtag="#React"
+                        >
+                          <FacebookIcon size={32} round={true} />
+                        </FacebookShareButton>
+                        <WhatsappShareButton url={urlShare+data?.id}>
+                          <WhatsappIcon size={32} round={true} />
+                        </WhatsappShareButton>
+                        <TwitterShareButton url={urlShare+data?.id}>
+                          <TwitterIcon size={32} round={true} />
+                        </TwitterShareButton>
+                        <LinkedinShareButton url={urlShare+data?.id}>
+                          <LinkedinIcon size={32} round={true} />
+                        </LinkedinShareButton>
+                        <TelegramShareButton url={urlShare+data?.id}>
+                          <TelegramIcon size={32} round={true} />
+                        </TelegramShareButton>
                       </div>
                     </div>
                   </div>
@@ -98,18 +116,13 @@ const DetailBlog = () => {
                       <div className="col-span-2 col-lg-8 col-md-8 px-4">
                         <form className="mt-8 space-y-6 mb-8">
                           <div className="space-y-px rounded-md items-center">
-                            <Input
-                              type={"text"}
-                              label="Entrer votre text"
-                              placeholder="Entrer votre text"
-                            />
+                            {/* <input type="text" className=""></input> */}
                           </div>
-                         
                         </form>
                       </div>
                       <div className="col-span-1 md:col-lg-4 col-md-4 gap-3 px-4">
                         <div className="mt-14 space-y-4 mb-4 w-full">
-                          <Button loading={false} label="Recherche" />
+                          {/* <Button loading={false} label="Recherche" /> */}
                         </div>
                       </div>
                     </div>
@@ -121,14 +134,12 @@ const DetailBlog = () => {
                         Popular Posts
                       </h1>
                     </div>
-
-                    
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p className=" border-t-2 border-gray-300/50 py-4 text-center"></p>
+          {/* <p className=" border-t-2 border-gray-300/50 py-4 text-center"></p> */}
           <Blogs />
         </div>
       )}

@@ -14,17 +14,17 @@ const AxiosInterceptor = ({ children }: { children: ReactNode }) => {
 	return children
 }
 
-instance.interceptors.request.use((config:any) => {
-	return {
-		...config,
-		headers: {
-			Accept: 'application/json',
-			authorization: localStorage.getItem('TOKEN_OBJECT_NAME')
-				? `Bearer ${JSON.parse(localStorage.getItem('TOKEN_OBJECT_NAME') || '')}`
-				: undefined,
-		},
-	}
-})
+// instance.interceptors.request.use((config:any) => {
+// 	return {
+// 		...config,
+// 		headers: {
+// 			Accept: 'application/json',
+// 			authorization: localStorage.getItem('TOKEN_OBJECT_NAME')
+// 				? `Bearer ${JSON.parse(localStorage.getItem('TOKEN_OBJECT_NAME') || '')}`
+// 				: undefined,
+// 		},
+// 	}
+// })
 
 instance.interceptors.response.use(
 	function (response) {

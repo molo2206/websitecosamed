@@ -33,9 +33,9 @@ const Input = ({
           onChange={onChange}
           className="w-full  font-montserrat  bg-transparent dark:bg-slate-900 rounded-md text-slate-900 border py-3 px-4 dark:text-white border-slate-300 dark:border-slate-700 focus:outline-none focus:border-principal focus:dark:border-principal focus:ring-0"
         >
-          {/* <option value={""} defaultChecked>
+          <option value={""} defaultChecked>
             ...
-          </option> */}
+          </option>
           {options?.map((item: any, index: number) => (
             <option key={index} value={item?.value} defaultChecked>
               {item?.label}
@@ -54,7 +54,7 @@ const Input = ({
           onChange={onChange}
         />
       )}
-      {errors ? <div className="d-block">{errors}</div> : null}
+      {errors ? <div className="d-block"><span className=" text-red-500 text-sm ">{errors}</span></div> : null}
     </div>
   );
 };

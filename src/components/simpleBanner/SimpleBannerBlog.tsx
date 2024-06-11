@@ -23,14 +23,11 @@ const SimpleBannerBlog = ({img}:props) => {
                 Market your next project with Cosamed
               </h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-                cumque odit. Rerum quidem assumenda nulla tempore vitae
-                blanditiis consequuntur quas sint dolorem, aliquam, ipsum fugit
-                repellendus ratione maiores id atque.
+                
               </p>
-              <button className=" btn-primary !bg-white !text-black">
+              {/* <button className=" btn-primary !bg-white !text-black">
                 Get Started
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

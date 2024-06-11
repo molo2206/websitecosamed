@@ -9,14 +9,14 @@ import useValidation from "../hooks/useValidation";
 import { showingTranslateValue } from "../utils/heleprs";
 import TextArea from "../components/form/TextArea";
 import { useAuthContext } from "../context";
-import Members from '../hooks/Members'
+import Members from "../hooks/Members";
 
 const Rejoindre = () => {
   const { t } = useTranslation();
   const { lang } = useAuthContext();
   const { data } = useAsync(() => ThematiquesServices.getThematiques());
   const { data: country } = useAsync(() => CountryService.getCountry());
-  const { createMember, loading: loadingForm } = Members()
+  const { createMember, loading: loadingForm } = Members();
   const genres = [
     {
       value: "Masculin",
@@ -42,7 +42,7 @@ const Rejoindre = () => {
       label: "Autre",
     },
   ];
-  const { inputs, errors, handleOnChange, hanldeError } = useValidation({
+  const { inputs, errors, handleOnChange, hanldeError,setInputs } = useValidation({
     name: "",
     prename: "",
     sexe: "",
@@ -50,63 +50,62 @@ const Rejoindre = () => {
     email: "",
     typemembre: "",
     thematique: "",
-    image: null,
     country: "",
     ville: "",
     profession: "",
   });
   const validation = (e: any) => {
-		e.preventDefault()
+    e.preventDefault();
 
-		let valide = true
-		if (!inputs.name) {
-			hanldeError('name us is required', 'name')
-			valide = false
-		}
-		if (!inputs.prename) {
-			hanldeError('prename is required', 'prename')
-			valide = false
-		}
-		if (!inputs.sexe) {
-			hanldeError('Sexe date is required', 'sexe')
-			valide = false
-		}
+    let valide = true;
+    if (!inputs.name) {
+      hanldeError("name us is required", "name");
+      valide = false;
+    }
+    if (!inputs.prename) {
+      hanldeError("prename is required", "prename");
+      valide = false;
+    }
+    if (!inputs.sexe) {
+      hanldeError("Sexe date is required", "sexe");
+      valide = false;
+    }
 
-		if (!inputs.phone) {
-			hanldeError('Phone is required', 'Author')
-			valide = false
-		}
+    if (!inputs.phone) {
+      hanldeError("Phone is required", "phone");
+      valide = false;
+    }
 
-		if (!inputs.email) {
-			hanldeError('email is required', 'email')
-			valide = false
-		}
+    if (!inputs.email) {
+      hanldeError("email is required", "email");
+      valide = false;
+    }
 
-		if (!inputs.typemembre) {
-			hanldeError('typemembre is required', 'typemembre')
-			valide = false
-		}
-		if (!inputs.thematique) {
-			hanldeError('thematique is required', 'thematique')
-			valide = false
-		}
-		if (!inputs.country) {
-			hanldeError('country is required', 'country')
-			valide = false
-		}
-		if (!inputs.ville) {
-			hanldeError('ville is required', 'ville')
-			valide = false
-		}
-		if (!inputs.profession) {
-			hanldeError('profession is required', 'profession')
-			valide = false
-		}
+    if (!inputs.typemembre) {
+      hanldeError("typemembre is required", "typemembre");
+      valide = false;
+    }
+    if (!inputs.thematique) {
+      hanldeError("thematique is required", "thematique");
+      valide = false;
+    }
+    if (!inputs.country) {
+      hanldeError("country is required", "country");
+      valide = false;
+    }
+    if (!inputs.ville) {
+      hanldeError("ville is required", "ville");
+      valide = false;
+    }
+    if (!inputs.profession) {
+      hanldeError("profession is required", "profession");
+      valide = false;
+    }
 
-		if (valide) {
-			createMember(inputs)
-		}
-	}
+    if (valide) {
+      createMember(inputs,setInputs);
+    }
+  };
   return (
     <div className="">
       <div className="container px-4 h-[1000px] flex">
@@ -207,14 +206,14 @@ const Rejoindre = () => {
                         DEVENIR MEMBRE DE COSAMED
                       </p>
                     </div>
-
                     <form className="mt-8 space-y-6 mb-8" onSubmit={validation}>
                       <div className="space-y-px rounded-md items-center">
                         <div className="grid grid-cols-1 gap-4">
                           <Input
+                            required
                             label="Select Thematique"
                             type="select"
-                            errors={errors.title}
+                            errors={errors.thematique}
                             value={inputs.thematique}
                             onChange={(e: any) =>
                               handleOnChange(e.target.value, "thematique")
@@ -229,9 +228,10 @@ const Rejoindre = () => {
                             placeholder={"Entrez votre thematique"}
                           />
                           <Input
+                            required
                             label="Select Type membre"
                             type="select"
-                            errors={errors.title}
+                            errors={errors.typemembre}
                             value={inputs.typemembre}
                             onChange={(e: any) =>
                               handleOnChange(e.target.value, "typemembre")
@@ -245,17 +245,19 @@ const Rejoindre = () => {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                           <Input
+                            required
                             name="name"
                             label="name"
                             placeholder=""
                             type="text"
-                            errors={errors.title}
+                            errors={errors.name}
                             value={inputs.name}
                             onChange={(e: any) =>
                               handleOnChange(e.target.value, "name")
                             }
                           />
                           <Input
+                            required
                             name="prename"
                             label="Prename"
                             placeholder=""
@@ -267,6 +269,7 @@ const Rejoindre = () => {
                             }
                           />
                           <Input
+                            required
                             name="select"
                             label="Select Sexe"
                             type="select"
@@ -282,6 +285,7 @@ const Rejoindre = () => {
                             placeholder={"Selectionner un genre"}
                           />
                           <Input
+                            required
                             name="phone"
                             label="Téléphone"
                             type="phone"
@@ -292,6 +296,7 @@ const Rejoindre = () => {
                             }
                           />
                           <Input
+                            required
                             name="email"
                             label="Email"
                             placeholder=""
@@ -303,6 +308,7 @@ const Rejoindre = () => {
                             }
                           />
                           <Input
+                            required
                             name="select"
                             label="Select Pays"
                             type="select"
@@ -313,11 +319,12 @@ const Rejoindre = () => {
                             }
                             options={country?.map((item: any) => ({
                               label: item.name,
-                              value: item.name,
+                              value: item.id,
                             }))}
                             placeholder={"Selectionner votre pays"}
                           />
                           <Input
+                            required
                             name="ville"
                             label="Ville"
                             type="text"
@@ -328,6 +335,7 @@ const Rejoindre = () => {
                             }
                           />
                           <Input
+                            required
                             type={"text"}
                             name="profession"
                             label="profession"
@@ -363,7 +371,7 @@ const Rejoindre = () => {
                         </div>
                         <div className="grid grid-cols-1 gap-4">
                           <TextArea
-                            name="title"
+                            name="motif"
                             placeholder=""
                             type="text"
                             value={inputs.motif}

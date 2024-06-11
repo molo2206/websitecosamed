@@ -44,7 +44,7 @@ interface props {
           <textarea
             rows={10}
             name={name}
-            style={{ height: 100 }}
+            style={{ height: 300 }}
             value={value}
             autoComplete="off"
             className="w-full bg-transparent  font-montserrat  rounded-md text-slate-800 border py-3 px-4 dark:text-white border-slate-300 dark:border-slate-700 focus:outline-none focus:border-principal focus:dark:border-principal focus:ring-0"

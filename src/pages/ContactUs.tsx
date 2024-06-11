@@ -1,99 +1,182 @@
+import { Link } from "react-router-dom";
+import Input from "../components/form/Input";
+import Button from "../components/form/Button";
+// import { useTranslation } from "react-i18next";
+// import useAsync from "../hooks/useAsync";
+import useValidation from "../hooks/useValidation";
+// import { showingTranslateValue } from "../utils/heleprs";
+import TextArea from "../components/form/TextArea";
+// import { useAuthContext } from "../context";
+import Contact from "../hooks/Contact";
+import Location from "../components/blogs/Location";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa6";
+
 const ContactUs = () => {
+  // const { t } = useTranslation();
+  // const { lang } = useAuthContext();
+  const { createContact, loading: loadingForm } = Contact();
+
+  const { inputs, errors, handleOnChange, hanldeError, setInputs } =
+    useValidation({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  const validation = (e: any) => {
+    e.preventDefault();
+
+    let valide = true;
+    if (!inputs.first_name) {
+      hanldeError("First name us is required", "first_name");
+      valide = false;
+    }
+    if (!inputs.last_name) {
+      hanldeError("Last name is required", "last_name");
+      valide = false;
+    }
+    if (!inputs.email) {
+      hanldeError("Email is required", "email");
+      valide = false;
+    }
+
+    if (!inputs.phone) {
+      hanldeError("Phone is required", "phone");
+      valide = false;
+    }
+
+    if (!inputs.message) {
+      hanldeError("Message is required", "message");
+      valide = false;
+    }
+
+    if (valide) {
+      createContact(inputs, setInputs);
+    }
+  };
   return (
-    <div className=" dark:bg-gray-900">
-      <section className="py-16 ">
-        <div className="max-w-6xl mx-auto md:p-16 xl:p-20 ">
-          <div className="lg:w-2/3 space-y-5 text-center mx-auto">
-            <h1
-              className="text-gray-800 uppercase tracking-widest
-             dark:text-white font-medium text-4xl"
-            >
-              Get in touch
-            </h1>
-            <div className="h-0.5 bg-hover w-14 mx-auto"></div>
-            <p className="text-gray-400 dark:text-gray-300 text-base leading-6">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam
-              omnis nemo sint, ex provident officiis error, rerum tempora, vero
-              tempore incidunt fugiat ullam non ipsa illum veritatis. Suscipit
-              nostrum ipsa nesciunt eaque.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 px-8 pt-6 pb-8 mb-4">
+    <div className=" dark:bg-slate-900 w-full dark:text-white ">
+      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 row">
+        <div className="col-span-2 col-lg-8 col-md-8 px-4">
+          <Location />
+        </div>
+        <div className="col-span-1 md:col-lg-4 col-md-4 gap-3 px-4 ">
+          <div className="m-x-auto py-10">
             <div>
-              <address>
-                <div className=" mb-6">
-                  <h2 className="text-base font-medium mb-2 dark:text-white">
-                    Office Address 1:
-                  </h2>
-                  <p className="text-gray-400 dark:text-gray-300 text-sm font-medium leading-5">
-                    RDC, Nord-Kivu, Goma, Q. Katindo.
-                  </p>
+              <h2 className="font-montserrat mb-2 text-center text-xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Nous Contactez
+              </h2>
+              <p className="text-sm font-montserrat mb-2 font-base capitalize font-light font-font1 text-center text-slate-800 dark:text-light-gray-500 mt-2 dark:text-white">
+                Envoyez un message via le formulaire indiqué. Si votre demande
+                est urgente, veuillez utiliser les coordonnées ci-dessous.
+              </p>
+              <div className="px-4 ">
+                <div className=" flex flex-col gap-3">
+                  <div className="flex gap-3 mr-6 items-center justify-center text-center">
+                    <a href="" className=" duration-200 hover:scale-105">
+                      <FaTwitter className="text-3xl" />
+                    </a>
+                    <a href="" className=" duration-200 hover:scale-105">
+                      <FaFacebook className=" text-3xl" />
+                    </a>
+                    <a
+                      href="https://api.whatsapp.com/send?phone=243992036566"
+                      className=" duration-200 hover:scale-105"
+                    >
+                      <FaWhatsapp className=" text-3xl" />
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="text-base font-medium mb-2 dark:text-white">
-                    Office Address 2:
-                  </h2>
-                  <p className="text-gray-400 dark:text-gray-300 text-sm font-medium leading-5">
-                    RDC, Nord-Kivu, Goma, Q. Majengo.
-                  </p>
-                </div>
-              </address>
+              </div>
             </div>
-            <div className="lg:col-span-2">
-              <form
-                action=""
-                className="bg-white shadow-md rounded
-                 px-8 pt-6 pb-8 mb-4 dark:bg-slate-900 border border-slate-400 dark:text-slate-400"
-              >
-                <div className="mb-4">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="username"
-                  >
-                    Username
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="username"
+            <form className="mt-8 space-y-6 mb-8" onSubmit={validation}>
+              <div className="space-y-px rounded-md items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+                  <Input
+                    name="first_name"
+                    label="VOTRE NOM"
+                    placeholder=""
                     type="text"
-                    placeholder="Username"
+                    errors={errors.first_name}
+                    value={inputs.first_name}
+                    onChange={(e: any) =>
+                      handleOnChange(e.target.value, "first_name")
+                    }
+                  />
+                  <Input
+                    name="last_name"
+                    label="VOTRE PRENOM"
+                    placeholder=""
+                    type="text"
+                    errors={errors.last_name}
+                    value={inputs.last_name}
+                    onChange={(e: any) =>
+                      handleOnChange(e.target.value, "last_name")
+                    }
                   />
                 </div>
-                <div className="mb-6">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="username"
-                  >
-                    Email
-                  </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="username"
+                <div className="grid grid-cols-1 gap-4">
+                  <Input
+                    name="email"
+                    label="EMAIL"
+                    placeholder=""
                     type="text"
-                    placeholder="Email"
+                    errors={errors.email}
+                    value={inputs.email}
+                    onChange={(e: any) =>
+                      handleOnChange(e.target.value, "email")
+                    }
                   />
                 </div>
-                <div className="mb-6">
-                  <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
-                    htmlFor="username"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    rows={10}
-                    className="shadow appearance-none border rounded w-full py-2 px-3
-                     text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="message"
+                <div className="grid grid-cols-1 gap-4">
+                  <Input
+                    name="phone"
+                    label="TELEPHONE"
+                    placeholder=""
+                    type="phone"
+                    errors={errors.phone}
+                    value={inputs.phone}
+                    onChange={(e: any) =>
+                      handleOnChange(e.target.value, "phone")
+                    }
+                  />
+                </div>
+                <div className="grid grid-cols-1 gap-4">
+                  <TextArea
                     name="message"
-                    placeholder="Your message"
-                  ></textarea>
+                    placeholder="VOTRE MESSAGE"
+                    type="text"
+                    value={inputs.message}
+                    onChange={(e: any) =>
+                      handleOnChange(e.target.value, "message")
+                    }
+                    label={"VOTRE MESSAGE"}
+                  />
                 </div>
-              </form>
-            </div>
+              </div>
+              <Button label={"Envoyer"}  loading={loadingForm} />
+              <div className="justify-center items-center">
+                <div className="mb-2">
+                  <p className="text-sm font-montserrat text-slate-700 dark:text-slate-600 text-justify">
+                    En cliquant sur Continuer, vous acceptez notre{" "}
+                    <Link
+                      to="/privacy-policy"
+                      className="text-principal font-bold"
+                      target="_blank"
+                    >
+                      Politique de confidentialité
+                    </Link>
+                    . Vous recevrez peut-être des notifications par texto ou par
+                    email de notre part.
+                  </p>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

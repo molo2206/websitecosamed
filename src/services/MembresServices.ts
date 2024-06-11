@@ -2,7 +2,7 @@ import requests from './Instance'
 const MembresServices = {
 
 	create: async (body: any) => {
-		return requests.post(`/member`, body, {
+		return requests.post(`/membepublic`, body, {
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'multipart/form-data',

@@ -12,13 +12,13 @@ import {
   FaMobileAlt,
 } from "react-icons/fa";
 import FooterLinks from "./FooterLinks";
-import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/useAuthContext";
 
 const Footer = () => {
   const { t } = useTranslation();
   const { lang } = useAuthContext();
   const { data } = useAsync(() => SettingsServices.getSettings());
+  const { data: dataadress} = useAsync(() => SettingsServices.getAdresse());
 
   function getDate() {
     const today = new Date();
@@ -34,30 +34,6 @@ const Footer = () => {
     {
       name: "Vision",
     },
-    {
-      name: "Gouvernance",
-    },
-    {
-      name: "Norme de gestion",
-    },
-    {
-      name: "Histoire",
-    },
-    {
-      name: "Finances",
-    },
-    {
-      name: "Publications",
-    },
-    {
-      name: "Histoire",
-    },
-    {
-      name: "Declaration de confidentialité",
-    },
-    {
-      name: "Contactez-nous",
-    },
   ];
   const Links = [
     {
@@ -71,18 +47,21 @@ const Footer = () => {
           {/* Footer Contain section */}
           <div className="grid py-2 md:grid-cols-3 header__sticky font-montserrat">
             <div className="px-2 py-4">
-              <p className="font-montserrat text-xl" dangerouslySetInnerHTML={{__html:showingTranslateValue(data?.translations, lang)
-                    ?.about_us,}}>
-                
-              </p>
+              <p
+                className="font-montserrat text-xl"
+                dangerouslySetInnerHTML={{
+                  __html: showingTranslateValue(data?.translations, lang)
+                    ?.about_us,
+                }}
+              ></p>
               <br />
               <div className=" flex items-center gap-3">
                 <FaLocationArrow />
-                <p>Noida,Uttar Pradesh</p>
+                <p>{dataadress?.adresse}</p>
               </div>
               <div className=" flex items-center gap-3 mt-3">
                 <FaMobileAlt />
-                <p>{data?.phones}</p>
+                <p>{dataadress?.phones}</p>
               </div>
             </div>
             <div className=" grid grid-cols-2 sm:grid-cols-3 md:pl-10 col-span-2">
@@ -126,21 +105,13 @@ const Footer = () => {
                       <FaLinkedinIn className=" text-3xl" />
                     </a>
                   </div>
-                  <button
-                    className="h-[50px] w-[250px] rounded-lg font-bold bg-white
-                   duration-200 hover:scale-105 text-principal"
-                  >
-                    <Link to="/community/join" onClick={() => window.scroll}>
-                      {t("donate")}
-                    </Link>
-                  </button>
                 </div>
               </div>
             </div>
           </div>
           {/*    Footer copyright section */}
           <div className=" bottom-footer">
-            <div className="md:inline-flex my-10 md:ml-10 rounded-sm w-full  justify-center">
+            <div className="md:inline-flex my-10 md:ml-10 zrounded-sm w-full  justify-center">
               <img
                 src={Logo}
                 alt="Logo"

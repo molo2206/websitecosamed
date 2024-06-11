@@ -25,12 +25,13 @@ import DetailBlog from "./pages/DetailBlog";
 import DetailBulletin from "./pages/DetailBulletin";
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./pages/About";
+import Partners from "./pages/Partners";
 
 function App() {
   return (
     <>
     <ScrollToTop/>
-    <ToastContainer />
+    <ToastContainer position="bottom-right" style={{zIndex:99999}} />
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
@@ -47,6 +48,7 @@ function App() {
             <Route path="/blog/detail/:id" element={<DetailBlog />} />
             <Route path="/bulletin/detail/:id" element={<DetailBulletin />} />
             <Route path="/about" element={<About/>}></Route>
+            <Route path="/partners" element={<Partners/>}></Route>
             {/* <Route path="/videos" element={<Videos/>}></Route>
             <Route path="/evenement" element={<Evenement/>}></Route>
             <Route path="/galery" element={<Photos/>}></Route>

@@ -18,6 +18,7 @@ import { BsCalendar2Event } from "react-icons/bs";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import { useAuthContext } from "../../context";
+import { ToastContainer, toast } from "react-toastify";
 
 function Navbar() {
   const { handleLanguageChange, lang } = useAuthContext();
@@ -29,6 +30,9 @@ function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false);
   const element = document.documentElement;
+
+  const notify = () =>
+    toast("Cette fonctionnalité est encours de développement!");
 
   useEffect(() => {
     if (theme === "dark") {
@@ -45,6 +49,7 @@ function Navbar() {
   return (
     <>
       <header
+        style={{ zIndex: 2 }}
         className={`header__sticky ${
           sticky ? "header-sticky" : ""
         } left-0 right-0 bg-navbar text-white border-b-[1px] border-primary/50`}
@@ -392,8 +397,11 @@ function Navbar() {
                             </h1>
                           </div>
                           <div>
-                            <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                              <Link to="" onClick={() => window.scroll(0, 0)}>
+                            <h1 className="pb-1 hover:text-gray-700 text-xl text-principal font-semibold">
+                              <Link
+                                to="/partners"
+                                onClick={() => window.scroll(0, 0)}
+                              >
                                 <BiDonateHeart size={25} />
                                 {t("Partnerships")}
                               </Link>
@@ -433,14 +441,16 @@ function Navbar() {
                 </div>
               </li>
               <li>
-                <Link to="/community/donate" onClick={() => window.scroll}>
-                  <button
-                    className="h-[25px] w-[180px] rounded-lg 
+                {/* <Link to="/community/donate" onClick={() => window.scroll}> */}
+                <button
+                  onClick={notify}
+                  className="h-[25px] w-[180px] rounded-lg 
                               bg-white text-principal font-semibold text-center"
-                  >
-                    {t("Donate")}
-                  </button>
-                </Link>
+                >
+                  {t("Donate")}
+                  <ToastContainer />
+                </button>
+                {/* </Link> */}
               </li>
               <li className=" group relative cursor-pointer">
                 <a
