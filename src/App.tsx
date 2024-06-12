@@ -26,6 +26,7 @@ import DetailBulletin from "./pages/DetailBulletin";
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./pages/About";
 import Partners from "./pages/Partners";
+import Team from "./pages/Team";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
             <Route path="/bulletin/detail/:id" element={<DetailBulletin />} />
             <Route path="/about" element={<About/>}></Route>
             <Route path="/partners" element={<Partners/>}></Route>
+            <Route path="/team" element={<Team/>}></Route>
             {/* <Route path="/videos" element={<Videos/>}></Route>
             <Route path="/evenement" element={<Evenement/>}></Route>
             <Route path="/galery" element={<Photos/>}></Route>

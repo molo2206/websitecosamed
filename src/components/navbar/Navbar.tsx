@@ -417,7 +417,7 @@ function Navbar() {
                           </div>
                           <div>
                             <h1 className=" pb-1 hover:text-gray-700 text-xl text-principal font-semibold ">
-                              <Link to="" onClick={() => window.scroll(0, 0)}>
+                              <Link to="/team" onClick={() => window.scroll(0, 0)}>
                                 <MdManageAccounts size={25} />
                                 {t("Governance")}
                               </Link>
