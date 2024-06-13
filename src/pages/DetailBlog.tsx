@@ -38,9 +38,9 @@ const DetailBlog = () => {
             {showingTranslateValue(data?.category?.translations, lang)?.name}
           </p>
           <div className="">
-            <div className="py-2 font-semibold">
-              {/* <BreadCumbs /> */}
-            </div>
+            {/* <div className="py-2 font-semibold">
+             
+            </div> */}
             <div className="  pb-14 py-1">
               <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 row">
                 <div className="col-span-2 col-lg-8 col-md-8 px-4">
