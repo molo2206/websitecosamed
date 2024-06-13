@@ -442,14 +442,14 @@ function Navbar() {
               </li>
               <li>
                 {/* <Link to="/community/donate" onClick={() => window.scroll}> */}
-                <button
+                {/* <button
                   onClick={notify}
                   className="h-[40px] w-[180px] rounded-lg 
                               bg-white text-principal hover:bg-orange-300 hover:text-white font-semibold text-center"
                 >
                   {t("Donate")}
                   <ToastContainer />
-                </button>
+                </button> */}
                 {/* </Link> */}
               </li>
               <li className=" group relative cursor-pointer">
