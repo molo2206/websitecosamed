@@ -1,10 +1,10 @@
-import Img1 from "../assets/blogs/img1.jpeg";
+
 import BlogCard from "../components/blogs/BlogCard";
-import SimpleBannerBlog from "../components/simpleBanner/SimpleBannerBlog";
 import BlogServices from "../services/BlogsServices";
 import useAsync from "../hooks/useAsync";
 import BlogCardLoand from "../components/blogs/BlogCardLoad";
 import BlogDetailLoad from "../components/blogs/BlogDetailLoad";
+import BreadCumbs from "../components/breadCumbs/BreadCumbs";
 const Blog = () => {
   const { data, loading } = useAsync(() => BlogServices.getBlog());
 
@@ -13,11 +13,12 @@ const Blog = () => {
       {loading ? (
         Array.from(Array(20).keys()).map(() => <BlogDetailLoad />)
       ) : (
-        <div className=" dark:bg-slate-900 w-full dark:text-white ">
+        <div className="container dark:bg-slate-900 w-full dark:text-white py-8">
           <div>
-            <div className="container py-2 font-semibold">Accueil/Blog</div>
+            <div className="container py-2 font-semibold">
+            <BreadCumbs />
+            </div>
             <section className="mb-10 ">
-              <SimpleBannerBlog img={Img1} />
               <h1 className=" mb-8 border-l-8 py-2 pl-2 text-center text-3xl font-bold">
                 Our Latest Blogs
               </h1>

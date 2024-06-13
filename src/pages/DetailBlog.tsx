@@ -20,6 +20,7 @@ import {
   LinkedinIcon,
   TelegramIcon,
 } from "react-share";
+import BreadCumbs from "../components/breadCumbs/BreadCumbs";
 
 const DetailBlog = () => {
   const { t } = useTranslation();
@@ -37,6 +38,9 @@ const DetailBlog = () => {
             {showingTranslateValue(data?.category?.translations, lang)?.name}
           </p>
           <div className="">
+            <div className="py-2 font-semibold">
+              {/* <BreadCumbs /> */}
+            </div>
             <div className="  pb-14 py-1">
               <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 row">
                 <div className="col-span-2 col-lg-8 col-md-8 px-4">
@@ -94,16 +98,16 @@ const DetailBlog = () => {
                         >
                           <FacebookIcon size={32} round={true} />
                         </FacebookShareButton>
-                        <WhatsappShareButton url={urlShare+data?.id}>
+                        <WhatsappShareButton url={urlShare + data?.id}>
                           <WhatsappIcon size={32} round={true} />
                         </WhatsappShareButton>
-                        <TwitterShareButton url={urlShare+data?.id}>
+                        <TwitterShareButton url={urlShare + data?.id}>
                           <TwitterIcon size={32} round={true} />
                         </TwitterShareButton>
-                        <LinkedinShareButton url={urlShare+data?.id}>
+                        <LinkedinShareButton url={urlShare + data?.id}>
                           <LinkedinIcon size={32} round={true} />
                         </LinkedinShareButton>
-                        <TelegramShareButton url={urlShare+data?.id}>
+                        <TelegramShareButton url={urlShare + data?.id}>
                           <TelegramIcon size={32} round={true} />
                         </TelegramShareButton>
                       </div>

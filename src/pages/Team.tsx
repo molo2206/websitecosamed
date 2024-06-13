@@ -10,7 +10,7 @@ const Team = () => {
       {loading ? (
         Array.from(Array(20).keys()).map(() => <BlogDetailLoad />)
       ) : (
-        <div className=" dark:bg-slate-900 w-full dark:text-white py-8">
+        <div className="container dark:bg-slate-900 w-full dark:text-white py-8">
           <div>
             <div className="container py-2 font-semibold">Accueil/Team</div>
             <section className="mb-10 ">

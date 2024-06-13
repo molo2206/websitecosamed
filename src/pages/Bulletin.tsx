@@ -1,8 +1,7 @@
-import Img1 from "../assets/blogs/b1.jpeg";
+
 import BulletinCard from "../components/blogs/BulletinCard";
 import BulletinLoad from "../components/blogs/BulletinLoad";
 import BulletinServices from "../services/BulletinServices";
-import SimpleBannerBulletin from "../components/simpleBanner/SimpleBannerBulletin";
 import useAsync from "../hooks/useAsync";
 const Bulletin = () => {
   const { data, loading } = useAsync(() => BulletinServices.getBulletin());
@@ -11,11 +10,10 @@ const Bulletin = () => {
       {loading ? (
         Array.from(Array(20).keys()).map(() => <BulletinCard />)
       ) : (
-        <div className=" dark:bg-slate-900 w-full dark:text-white ">
+        <div className="container dark:bg-slate-900 w-full dark:text-white py-8">
           <div>
           <div className="container py-2 font-semibold">Accueil/Bulletin</div>
             <section className="mb-10">
-              <SimpleBannerBulletin img={Img1} />
               <h1 className=" mb-8 border-l-8 py-2 pl-2 text-center text-3xl font-bold">
                 Our Latest Newsletters
               </h1>
